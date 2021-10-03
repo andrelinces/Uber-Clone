@@ -13,6 +13,7 @@
 		D3ECFA4D270A4AE1005B800F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D3ECFA4B270A4AE1005B800F /* Main.storyboard */; };
 		D3ECFA4F270A4AE3005B800F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D3ECFA4E270A4AE3005B800F /* Assets.xcassets */; };
 		D3ECFA52270A4AE3005B800F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D3ECFA50270A4AE3005B800F /* LaunchScreen.storyboard */; };
+		D3ECFA5A270A4D69005B800F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D3ECFA59270A4D69005B800F /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		D3ECFA4E270A4AE3005B800F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D3ECFA51270A4AE3005B800F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D3ECFA53270A4AE3005B800F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D3ECFA59270A4D69005B800F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 				D3ECFA4E270A4AE3005B800F /* Assets.xcassets */,
 				D3ECFA50270A4AE3005B800F /* LaunchScreen.storyboard */,
 				D3ECFA53270A4AE3005B800F /* Info.plist */,
+				D3ECFA59270A4D69005B800F /* GoogleService-Info.plist */,
 			);
 			path = "Uber Clone";
 			sourceTree = "<group>";
@@ -125,6 +128,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D3ECFA52270A4AE3005B800F /* LaunchScreen.storyboard in Resources */,
+				D3ECFA5A270A4D69005B800F /* GoogleService-Info.plist in Resources */,
 				D3ECFA4F270A4AE3005B800F /* Assets.xcassets in Resources */,
 				D3ECFA4D270A4AE1005B800F /* Main.storyboard in Resources */,
 			);
