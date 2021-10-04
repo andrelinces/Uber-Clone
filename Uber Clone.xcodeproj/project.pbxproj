@@ -82,6 +82,8 @@
 		D3ECFA44270A4AE1005B800F /* Uber Clone */ = {
 			isa = PBXGroup;
 			children = (
+				D3ECFA5C270BCBA6005B800F /* Modals */,
+				D3ECFA5B270BCB64005B800F /* View Controllers */,
 				D3ECFA45270A4AE1005B800F /* AppDelegate.swift */,
 				D3ECFA47270A4AE1005B800F /* SceneDelegate.swift */,
 				D3ECFA49270A4AE1005B800F /* ViewController.swift */,
@@ -92,6 +94,20 @@
 				D3ECFA59270A4D69005B800F /* GoogleService-Info.plist */,
 			);
 			path = "Uber Clone";
+			sourceTree = "<group>";
+		};
+		D3ECFA5B270BCB64005B800F /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		D3ECFA5C270BCBA6005B800F /* Modals */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Modals;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
