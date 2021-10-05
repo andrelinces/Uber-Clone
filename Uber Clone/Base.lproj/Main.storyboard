@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Uber-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Uber_Clone" customModuleProvider="target" sceneMemberID="viewController">
@@ -98,7 +98,7 @@
                             <constraint firstItem="tsO-l3-m5S" firstAttribute="top" secondItem="66I-OK-8O9" secondAttribute="bottom" id="oFd-Uq-8ID"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="VYV-lM-zh6"/>
+                    <navigationItem key="navigationItem" title="Uber" id="VYV-lM-zh6"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -234,6 +234,14 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="mDd-u5-P3Z"/>
+                    <connections>
+                        <outlet property="registerConfirmPassaword" destination="Ihp-DF-SPF" id="0I4-xY-Lvd"/>
+                        <outlet property="registerEmail" destination="K6Y-cF-gKB" id="FhT-Aa-5P0"/>
+                        <outlet property="registerFullName" destination="ygT-bk-SpE" id="VoF-7X-NUW"/>
+                        <outlet property="registerPassaword" destination="yjx-Hz-oY4" id="dKn-VG-Dbm"/>
+                        <outlet property="registerUserButton" destination="wVH-Ka-AKU" id="yVS-GP-hzl"/>
+                        <outlet property="userType" destination="16y-Mr-rAh" id="rza-S7-1hD"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="anX-Ce-pbf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
