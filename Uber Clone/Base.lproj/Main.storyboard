@@ -33,7 +33,7 @@
                                                     <constraint firstAttribute="width" constant="180" id="nBe-sP-ped"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                                <state key="normal" title="Enter">
+                                                <state key="normal" title="Sing in">
                                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
                                                 <connections>
@@ -104,10 +104,10 @@
             </objects>
             <point key="canvasLocation" x="928.98550724637687" y="54.910714285714285"/>
         </scene>
-        <!--View Controller-->
+        <!--Cadastro View Controller-->
         <scene sceneID="cUW-Wv-Er6">
             <objects>
-                <viewController id="6Ef-T0-nmI" sceneMemberID="viewController">
+                <viewController id="6Ef-T0-nmI" customClass="CadastroViewController" customModule="Uber_Clone" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tAr-O5-OBY">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -239,10 +239,10 @@
             </objects>
             <point key="canvasLocation" x="1792.753623188406" y="417.85714285714283"/>
         </scene>
-        <!--View Controller-->
+        <!--Entrar View Controller-->
         <scene sceneID="NLT-1a-YV9">
             <objects>
-                <viewController id="vdT-16-2AC" sceneMemberID="viewController">
+                <viewController id="vdT-16-2AC" customClass="EntrarViewController" customModule="Uber_Clone" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="p1O-yV-aLu">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -279,7 +279,7 @@
                                     <constraint firstAttribute="width" constant="180" id="t7U-RL-gxX"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                <state key="normal" title="Enter">
+                                <state key="normal" title="Sing in">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                             </button>
