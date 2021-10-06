@@ -292,6 +292,9 @@
                                 <state key="normal" title="Sing in">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="buttonSingin:" destination="vdT-16-2AC" eventType="touchUpInside" id="i9r-fH-Sh1"/>
+                                </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter your e-mail" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="t5K-91-7Pc">
                                 <rect key="frame" x="20" y="138" width="374" height="34"/>
@@ -317,10 +320,30 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="nbP-2F-dTa"/>
+                    <connections>
+                        <outlet property="email" destination="t5K-91-7Pc" id="ktQ-BE-Nmu"/>
+                        <outlet property="passaword" destination="XCe-wA-6kG" id="AJU-9b-ora"/>
+                        <segue destination="bC0-eD-mOM" kind="presentation" id="E17-Bc-BkC"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lvW-3W-wrS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1792.753623188406" y="-292.63392857142856"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="o1f-ua-wBm">
+            <objects>
+                <viewController id="bC0-eD-mOM" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="OFv-qT-JC8">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="qS9-Vg-Y5K"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qqu-f2-fZa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2657" y="-293"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="9Lw-zj-hPB">
