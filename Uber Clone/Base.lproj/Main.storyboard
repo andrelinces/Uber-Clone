@@ -52,7 +52,7 @@
                                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
                                                 <connections>
-                                                    <segue destination="6Ef-T0-nmI" kind="show" id="3e4-hW-qvr"/>
+                                                    <segue destination="6Ef-T0-nmI" kind="show" id="5ej-Eu-xOH"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -104,10 +104,10 @@
             </objects>
             <point key="canvasLocation" x="928.98550724637687" y="54.910714285714285"/>
         </scene>
-        <!--Cadastro View Controller-->
+        <!--Register View Controller-->
         <scene sceneID="cUW-Wv-Er6">
             <objects>
-                <viewController id="6Ef-T0-nmI" customClass="CadastroViewController" customModule="Uber_Clone" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="6Ef-T0-nmI" customClass="RegisterViewController" customModule="Uber_Clone" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tAr-O5-OBY">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -140,7 +140,7 @@
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter your passaword" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yjx-Hz-oY4">
                                 <rect key="frame" x="20" y="306" width="374" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Confirm your Passaword" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iNn-fN-R19">
                                 <rect key="frame" x="20" y="350" width="200" height="30"/>
@@ -155,7 +155,7 @@
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Confirm your passaword" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ihp-DF-SPF">
                                 <rect key="frame" x="20" y="390" width="374" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Full Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T20-Ug-zzs">
                                 <rect key="frame" x="20" y="182" width="100" height="30"/>
@@ -198,6 +198,9 @@
                                 <state key="normal" title="Register">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="registerButton:" destination="6Ef-T0-nmI" eventType="touchUpInside" id="ZQ3-ap-taA"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="RTA-W9-2VP"/>
@@ -235,22 +238,21 @@
                     </view>
                     <navigationItem key="navigationItem" id="mDd-u5-P3Z"/>
                     <connections>
-                        <outlet property="registerConfirmPassaword" destination="Ihp-DF-SPF" id="0I4-xY-Lvd"/>
-                        <outlet property="registerEmail" destination="K6Y-cF-gKB" id="FhT-Aa-5P0"/>
-                        <outlet property="registerFullName" destination="ygT-bk-SpE" id="VoF-7X-NUW"/>
-                        <outlet property="registerPassaword" destination="yjx-Hz-oY4" id="dKn-VG-Dbm"/>
-                        <outlet property="registerUserButton" destination="wVH-Ka-AKU" id="yVS-GP-hzl"/>
-                        <outlet property="userType" destination="16y-Mr-rAh" id="rza-S7-1hD"/>
+                        <outlet property="registerConfirmPassaword" destination="Ihp-DF-SPF" id="zvf-kC-Uhf"/>
+                        <outlet property="registerEmail" destination="K6Y-cF-gKB" id="eGG-Pc-MRU"/>
+                        <outlet property="registerFullName" destination="ygT-bk-SpE" id="520-J7-7T4"/>
+                        <outlet property="registerPassaword" destination="yjx-Hz-oY4" id="5IN-RF-rCs"/>
+                        <outlet property="userType" destination="16y-Mr-rAh" id="E9P-28-Iwh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="anX-Ce-pbf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1792.753623188406" y="417.85714285714283"/>
         </scene>
-        <!--Entrar View Controller-->
+        <!--Sing In View Controller-->
         <scene sceneID="NLT-1a-YV9">
             <objects>
-                <viewController id="vdT-16-2AC" customClass="EntrarViewController" customModule="Uber_Clone" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="vdT-16-2AC" customClass="SingInViewController" customModule="Uber_Clone" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="p1O-yV-aLu">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
