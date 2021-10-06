@@ -17,6 +17,7 @@
 		D3ECFA5A270A4D69005B800F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D3ECFA59270A4D69005B800F /* GoogleService-Info.plist */; };
 		D3ECFA62270CFC19005B800F /* SingInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3ECFA61270CFC19005B800F /* SingInViewController.swift */; };
 		D3ECFA64270CFC6C005B800F /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3ECFA63270CFC6C005B800F /* RegisterViewController.swift */; };
+		D3ECFA66270E63D9005B800F /* PassengerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3ECFA65270E63D9005B800F /* PassengerViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		D3ECFA59270A4D69005B800F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D3ECFA61270CFC19005B800F /* SingInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingInViewController.swift; sourceTree = "<group>"; };
 		D3ECFA63270CFC6C005B800F /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		D3ECFA65270E63D9005B800F /* PassengerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassengerViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +107,7 @@
 				D3ECFA49270A4AE1005B800F /* ViewController.swift */,
 				D3ECFA63270CFC6C005B800F /* RegisterViewController.swift */,
 				D3ECFA61270CFC19005B800F /* SingInViewController.swift */,
+				D3ECFA65270E63D9005B800F /* PassengerViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -234,6 +237,7 @@
 				D3ECFA62270CFC19005B800F /* SingInViewController.swift in Sources */,
 				D3ECFA64270CFC6C005B800F /* RegisterViewController.swift in Sources */,
 				D3ECFA4A270A4AE1005B800F /* ViewController.swift in Sources */,
+				D3ECFA66270E63D9005B800F /* PassengerViewController.swift in Sources */,
 				D3ECFA46270A4AE1005B800F /* AppDelegate.swift in Sources */,
 				D3ECFA48270A4AE1005B800F /* SceneDelegate.swift in Sources */,
 			);

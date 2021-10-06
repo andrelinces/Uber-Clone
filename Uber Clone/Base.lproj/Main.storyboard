@@ -99,6 +99,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Uber" id="VYV-lM-zh6"/>
+                    <connections>
+                        <segue destination="bC0-eD-mOM" kind="presentation" identifier="segueLoginMain" id="NtL-XT-YWH"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -243,6 +246,7 @@
                         <outlet property="registerFullName" destination="ygT-bk-SpE" id="520-J7-7T4"/>
                         <outlet property="registerPassaword" destination="yjx-Hz-oY4" id="5IN-RF-rCs"/>
                         <outlet property="userType" destination="16y-Mr-rAh" id="E9P-28-Iwh"/>
+                        <segue destination="EHa-0U-SVw" kind="presentation" identifier="segueLoginRegister" id="BHD-gd-IcO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="anX-Ce-pbf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -323,27 +327,28 @@
                     <connections>
                         <outlet property="email" destination="t5K-91-7Pc" id="ktQ-BE-Nmu"/>
                         <outlet property="passaword" destination="XCe-wA-6kG" id="AJU-9b-ora"/>
-                        <segue destination="bC0-eD-mOM" kind="presentation" id="E17-Bc-BkC"/>
+                        <segue destination="EHa-0U-SVw" kind="presentation" identifier="segueLogin" id="E17-Bc-BkC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lvW-3W-wrS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1792.753623188406" y="-292.63392857142856"/>
         </scene>
-        <!--View Controller-->
+        <!--Uber Clone-->
         <scene sceneID="o1f-ua-wBm">
             <objects>
-                <viewController id="bC0-eD-mOM" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="bC0-eD-mOM" customClass="PassengerViewController" customModule="Uber_Clone" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="OFv-qT-JC8">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="qS9-Vg-Y5K"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Uber Clone" id="v2R-RR-i1N"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qqu-f2-fZa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2657" y="-293"/>
+            <point key="canvasLocation" x="4021.739130434783" y="67.633928571428569"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="9Lw-zj-hPB">
@@ -363,7 +368,29 @@
             </objects>
             <point key="canvasLocation" x="18.840579710144929" y="54.910714285714285"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="QX5-tO-lfu">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="EHa-0U-SVw" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="5mk-2M-urg">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="bC0-eD-mOM" kind="relationship" relationship="rootViewController" id="PZU-e4-6Tf"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3XQ-cT-5Dj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3111.594202898551" y="67.633928571428569"/>
+        </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="BHD-gd-IcO"/>
+        <segue reference="NtL-XT-YWH"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="fundo" width="2060" height="2060"/>
         <image name="logo" width="315" height="317"/>

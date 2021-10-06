@@ -38,8 +38,17 @@ class RegisterViewController: UIViewController {
                         authentication.createUser(withEmail: emailRecovered, password: passawordRecovered) { (user, error) in
                             
                             if error == nil {
+                                //print to test on success when creating the user.
+                                //print("successful creating user account ! ")
                                 
-                                print("successful creating user account ! ")
+                                //Valid if the user is logged in!
+                                if user != nil {
+                                    self.performSegue(withIdentifier: "segueLoginRegister", sender: nil)
+                                    
+                                }else{
+                                    print("Error authenticating user !!")
+                                }
+                                
                                 
                             }else{
                                 
