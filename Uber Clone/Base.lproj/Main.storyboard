@@ -357,6 +357,7 @@
                                 </state>
                                 <connections>
                                     <action selector="buttonSingin:" destination="vdT-16-2AC" eventType="touchUpInside" id="N3m-RC-BX2"/>
+                                    <action selector="callUber:" destination="bC0-eD-mOM" eventType="touchUpInside" id="Pa0-QQ-e1O"/>
                                 </connections>
                             </button>
                         </subviews>

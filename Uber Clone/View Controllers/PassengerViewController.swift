@@ -7,6 +7,7 @@
 
 import UIKit
 import FirebaseAuth
+import FirebaseDatabase
 import MapKit
 
 class PassengerViewController: UIViewController, CLLocationManagerDelegate {
@@ -15,6 +16,9 @@ class PassengerViewController: UIViewController, CLLocationManagerDelegate {
     
     //instantiating object CllocationManager
     var locationManager = CLLocationManager()
+    
+    //instantiating the objet to the user's coordinates
+    var userlocation = CLLocationCoordinate2D()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,11 +33,50 @@ class PassengerViewController: UIViewController, CLLocationManagerDelegate {
         locationManager.startUpdatingLocation()
         
     }
+    
+    //Creating references of the button call uber
+    
+    @IBAction func callUber(_ sender: Any) {
+        //creating references of the database
+        let database = Database.database().reference()
+        
+        //creating references to retrieve user data
+        let authentication = Auth.auth()
+        
+        if let userEmail = authentication.currentUser?.email {
+            
+            //creating node requests
+            let request = database.child("requests")
+            
+            //creating an array of dictionary for the registered data of the passing user.
+            let dateUser = [
+            
+                "e-mail" : userEmail ,
+                "nome" : "Andre Passageiro" ,
+                "latitude" : self.userlocation.latitude,
+                "longitude" : self.userlocation.longitude
+            ] as [String : Any]
+            
+            //Creating automatic ID for requests
+            request.childByAutoId().setValue( dateUser )
+            
+        }
+    
+        
+        
+        
+        
+    }//End the method calluber
+    
+    
     //Method for updating user location
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         
         //Retrieving the coordinates
         if let coordinateRecovered = manager.location?.coordinate {
+            
+            //configure the current user location
+            self.userlocation = coordinateRecovered
             
             //Defines user's location with the coordinateRecovered object and with a distance accuracy 200
             let region = MKCoordinateRegion.init(center: coordinateRecovered, latitudinalMeters: 200, longitudinalMeters: 200)
