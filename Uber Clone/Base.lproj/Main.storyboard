@@ -337,9 +337,9 @@
         <!--Uber Clone-->
         <scene sceneID="o1f-ua-wBm">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="bC0-eD-mOM" customClass="PassengerViewController" customModule="Uber_Clone" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="bC0-eD-mOM" customClass="PassengerViewController" customModule="Uber_Clone" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="OFv-qT-JC8">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="qS9-Vg-Y5K"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
