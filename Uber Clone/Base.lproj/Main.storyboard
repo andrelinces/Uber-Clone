@@ -341,14 +341,53 @@
                     <view key="view" contentMode="scaleToFill" id="OFv-qT-JC8">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="C6h-iK-6Aw">
+                                <rect key="frame" x="0.0" y="56" width="414" height="703"/>
+                            </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DLD-uU-BM7">
+                                <rect key="frame" x="0.0" y="679" width="414" height="80"/>
+                                <color key="backgroundColor" red="0.066666666669999999" green="0.57647058819999997" blue="0.60392156860000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="fBG-TK-QCT"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <state key="normal" title="Call Uber">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="buttonSingin:" destination="vdT-16-2AC" eventType="touchUpInside" id="N3m-RC-BX2"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="qS9-Vg-Y5K"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="C6h-iK-6Aw" firstAttribute="bottom" secondItem="qS9-Vg-Y5K" secondAttribute="bottom" id="GCc-IG-DSW"/>
+                            <constraint firstItem="DLD-uU-BM7" firstAttribute="leading" secondItem="qS9-Vg-Y5K" secondAttribute="leading" id="JtQ-Vk-8ay"/>
+                            <constraint firstItem="C6h-iK-6Aw" firstAttribute="leading" secondItem="qS9-Vg-Y5K" secondAttribute="leading" id="UhU-Qa-PfV"/>
+                            <constraint firstItem="DLD-uU-BM7" firstAttribute="bottom" secondItem="qS9-Vg-Y5K" secondAttribute="bottom" id="gHc-74-ErD"/>
+                            <constraint firstItem="DLD-uU-BM7" firstAttribute="trailing" secondItem="qS9-Vg-Y5K" secondAttribute="trailing" id="mZK-Ox-DVp"/>
+                            <constraint firstItem="C6h-iK-6Aw" firstAttribute="trailing" secondItem="qS9-Vg-Y5K" secondAttribute="trailing" id="n0z-Jg-4R8"/>
+                            <constraint firstItem="C6h-iK-6Aw" firstAttribute="top" secondItem="qS9-Vg-Y5K" secondAttribute="top" id="vHm-jy-YdQ"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Uber Clone" id="v2R-RR-i1N"/>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Uber Clone" id="v2R-RR-i1N">
+                        <barButtonItem key="leftBarButtonItem" title="Logout" id="9pc-fp-nN0">
+                            <connections>
+                                <action selector="logoutUser:" destination="bC0-eD-mOM" id="ltc-rt-vLe"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="mapView" destination="C6h-iK-6Aw" id="4DZ-7d-BCj"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qqu-f2-fZa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4021.739130434783" y="67.633928571428569"/>
+            <point key="canvasLocation" x="3924.6376811594205" y="67.633928571428569"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="9Lw-zj-hPB">
@@ -388,8 +427,8 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="BHD-gd-IcO"/>
-        <segue reference="NtL-XT-YWH"/>
+        <segue reference="E17-Bc-BkC"/>
+        <segue reference="PZU-e4-6Tf"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="fundo" width="2060" height="2060"/>

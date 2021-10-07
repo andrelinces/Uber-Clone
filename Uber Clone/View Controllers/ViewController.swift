@@ -16,13 +16,13 @@ class ViewController: UIViewController {
         let authentication = Auth.auth()
         
         //singOut user
-        
+        /*
         do {
             try try authentication.signOut()
         } catch  {
             print("Error singOut user!!")
         }
-        
+        */
         authentication.addStateDidChangeListener { authentication, user in
             //If the logged in user has a value, there is a logged in user.
             if let userLogged = user {
