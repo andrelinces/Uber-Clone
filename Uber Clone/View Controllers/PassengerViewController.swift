@@ -41,6 +41,8 @@ class PassengerViewController: UIViewController, CLLocationManagerDelegate {
             //using the mapview of the app
             mapView.setRegion(region, animated: true)
             
+            //Removes all user annotations on the map before displaying the current annotation
+            
             //Create an annotation for the user's location
             let userAnnotation = MKPointAnnotation()
             userAnnotation.coordinate = coordinateRecovered
