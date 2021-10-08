@@ -31,9 +31,9 @@ class ViewController: UIViewController {
             //If the logged in user has a value, there is a logged in user.
             if let userLogged = user {
                 
-                //passing user to main view.
+                //passing user to main view if he is logged in.
                 self.performSegue(withIdentifier: "segueLoginMain", sender: nil)
-                //self.navigationController?.setNavigationBarHidden(false, animated: false)
+                
             }
             
         }

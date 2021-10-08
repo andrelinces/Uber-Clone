@@ -21,6 +21,24 @@ class RegisterViewController: UIViewController {
     
     @IBOutlet weak var userType: UISwitch!
     
+    @IBOutlet weak var passengerLabel: UILabel!
+   
+    @IBOutlet weak var driverLabel: UILabel!
+    
+    
+    @IBAction func typeSwitch(_ sender: Any) {
+        //change label color as user selects switch
+        if self.userType.isOn {
+            self.driverLabel.textColor = UIColor.white
+            self.passengerLabel.textColor = UIColor.black
+                        //self.passengerLabel.textColor = UIColor(red: 0.0, green: 0.004, blue: 0.502, alpha: 1.0)
+        }else {
+            self.passengerLabel.textColor = UIColor.white
+            self.driverLabel.textColor = UIColor.black
+        }
+        reloadInputViews()
+    }
+    
     @IBAction func registerButton(_ sender: Any) {
         
         let validateReturn = validateFields()
@@ -54,13 +72,14 @@ class RegisterViewController: UIViewController {
                                     //checks the user type
                                     var type = ""
                                     if self.userType.isOn {//On passenger
-                                        
+                                        //UIColor(red: 0.0, green: 0.004, blue: 0.502, alpha: 1.0)
                                         type = "passenger"
+                                        
                                         
                                     }else{//off driver
                                         
                                         type = "driver"
-                                        
+                                        self.passengerLabel.text = " "
                                     }
                                     
                                     
@@ -93,8 +112,6 @@ class RegisterViewController: UIViewController {
             }//end of test if authentication
             
             
-            
-            
         }else{
             //print to show if the user left any field empety!
             print("The field \(validateReturn) was not filled in !!")
@@ -124,9 +141,19 @@ class RegisterViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        /*
+        if self.userType.isOn {
+            self.passengerLabel.textColor = UIColor.white
+            //self.passengerLabel.textColor = UIColor(red: 0.0, green: 0.004, blue: 0.502, alpha: 1.0)
+        }else{
+            self.passengerLabel.textColor = UIColor.white
+        }
+        */
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        
+        
         self.navigationController?.setNavigationBarHidden(false, animated: false)
     }
     

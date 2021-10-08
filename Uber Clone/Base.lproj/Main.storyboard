@@ -177,6 +177,9 @@
                             </textField>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="16y-Mr-rAh">
                                 <rect key="frame" x="182.5" y="444" width="51" height="31"/>
+                                <connections>
+                                    <action selector="typeSwitch:" destination="6Ef-T0-nmI" eventType="valueChanged" id="cGJ-rQ-xX4"/>
+                                </connections>
                             </switch>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Passenger" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bnn-en-DJy">
                                 <rect key="frame" x="257.5" y="447.5" width="92" height="24"/>
@@ -241,6 +244,8 @@
                     </view>
                     <navigationItem key="navigationItem" id="mDd-u5-P3Z"/>
                     <connections>
+                        <outlet property="driverLabel" destination="TCM-Up-9LO" id="fV2-GA-MUO"/>
+                        <outlet property="passengerLabel" destination="Bnn-en-DJy" id="lLD-ma-P0S"/>
                         <outlet property="registerConfirmPassaword" destination="Ihp-DF-SPF" id="zvf-kC-Uhf"/>
                         <outlet property="registerEmail" destination="K6Y-cF-gKB" id="eGG-Pc-MRU"/>
                         <outlet property="registerFullName" destination="ygT-bk-SpE" id="520-J7-7T4"/>
@@ -428,7 +433,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="8gn-6o-1Ao"/>
+        <segue reference="BHD-gd-IcO"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="fundo" width="2060" height="2060"/>
