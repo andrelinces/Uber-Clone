@@ -20,6 +20,8 @@ class PassengerViewController: UIViewController, CLLocationManagerDelegate {
     //instantiating the objet to the user's coordinates
     var userlocation = CLLocationCoordinate2D()
     
+   
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -49,7 +51,7 @@ class PassengerViewController: UIViewController, CLLocationManagerDelegate {
             let request = database.child("requests")
             
             //creating an array of dictionary for the registered data of the passing user.
-            let dateUser = [
+            let dataUser = [
             
                 "e-mail" : userEmail ,
                 "nome" : "Andre Passageiro" ,
@@ -58,14 +60,11 @@ class PassengerViewController: UIViewController, CLLocationManagerDelegate {
             ] as [String : Any]
             
             //Creating automatic ID for requests
-            request.childByAutoId().setValue( dateUser )
+            request.childByAutoId().setValue( dataUser )
             
         }
     
-        
-        
-        
-        
+          
     }//End the method calluber
     
     
@@ -98,11 +97,6 @@ class PassengerViewController: UIViewController, CLLocationManagerDelegate {
     //let region = MKCoordinateRegion(center: <#T##CLLocationCoordinate2D#>, span: <#T##MKCoordinateSpan#>)
     //let mapView = MKMapView.setRegion(self.region)
     
-    override func viewDidAppear(_ animated: Bool) {
-        self.navigationController?.setNavigationBarHidden(false, animated: false)
-    }
-    
-    
     //Logout user
     @IBAction func logoutUser(_ sender: Any) {
         
@@ -115,7 +109,10 @@ class PassengerViewController: UIViewController, CLLocationManagerDelegate {
         } catch  {
             print("Error logout user!!")
         }
-        
+      
     }
-    
+     
+    override func viewDidAppear(_ animated: Bool) {
+        self.navigationController?.setNavigationBarHidden(false, animated: false)
+    }
 }

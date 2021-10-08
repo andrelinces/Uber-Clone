@@ -10,8 +10,12 @@ import FirebaseAuth
 
 class ViewController: UIViewController {
 
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         //retriveing the objetc
         let authentication = Auth.auth()
         
@@ -29,7 +33,7 @@ class ViewController: UIViewController {
                 
                 //passing user to main view.
                 self.performSegue(withIdentifier: "segueLoginMain", sender: nil)
-                
+                //self.navigationController?.setNavigationBarHidden(false, animated: false)
             }
             
         }
@@ -37,12 +41,14 @@ class ViewController: UIViewController {
         
         
     }
+    
     //Hiding navigation bar
     override func viewWillAppear(_ animated: Bool) {
         
         self.navigationController?.setNavigationBarHidden(true, animated: false)
         
     }
+    
 
 }
 

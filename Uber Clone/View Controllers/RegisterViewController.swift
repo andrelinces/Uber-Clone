@@ -7,6 +7,7 @@
 
 import UIKit
 import FirebaseAuth
+import FirebaseDatabase
 
 class RegisterViewController: UIViewController {
     
@@ -43,7 +44,37 @@ class RegisterViewController: UIViewController {
                                 
                                 //Valid if the user is logged in!
                                 if user != nil {
-                                    self.performSegue(withIdentifier: "segueLoginRegister", sender: nil)
+                                    //self.performSegue(withIdentifier: "segueLoginRegister", sender: nil)
+                                    
+                                    //configure database
+                                    let database = Database.database().reference()
+                                    
+                                    let users = database.child("users")
+                                    
+                                    //checks the user type
+                                    var type = ""
+                                    if self.userType.isOn {//On passenger
+                                        
+                                        type = "passenger"
+                                        
+                                    }else{//off driver
+                                        
+                                        type = "driver"
+                                        
+                                    }
+                                    
+                                    
+                                    //Saves the user's data to the database
+                                    let userdata = [
+                                    
+                                        "email" : emailRecovered ,
+                                        "name" : fullNameRecovered,
+                                        "usertype" : type
+                                    ]
+                                    
+                                    //saves user data in firebase
+                                    users.child( (user?.user.uid)! ).setValue(userdata)
+                                    
                                     
                                 }else{
                                     print("Error authenticating user !!")
