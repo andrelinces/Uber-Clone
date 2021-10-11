@@ -251,7 +251,6 @@
                         <outlet property="registerFullName" destination="ygT-bk-SpE" id="520-J7-7T4"/>
                         <outlet property="registerPassaword" destination="yjx-Hz-oY4" id="5IN-RF-rCs"/>
                         <outlet property="userType" destination="16y-Mr-rAh" id="E9P-28-Iwh"/>
-                        <segue destination="EHa-0U-SVw" kind="presentation" identifier="segueLoginRegister" id="BHD-gd-IcO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="anX-Ce-pbf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -332,7 +331,6 @@
                     <connections>
                         <outlet property="email" destination="t5K-91-7Pc" id="ktQ-BE-Nmu"/>
                         <outlet property="passaword" destination="XCe-wA-6kG" id="AJU-9b-ora"/>
-                        <segue destination="EHa-0U-SVw" kind="presentation" identifier="segueLogin" id="E17-Bc-BkC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lvW-3W-wrS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -480,9 +478,6 @@
             <point key="canvasLocation" x="3003" y="775"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="8gn-6o-1Ao"/>
-    </inferredMetricsTieBreakers>
     <resources>
         <image name="fundo" width="2060" height="2060"/>
         <image name="logo" width="315" height="317"/>
