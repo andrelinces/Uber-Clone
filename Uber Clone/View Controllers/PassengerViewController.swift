@@ -14,12 +14,15 @@ class PassengerViewController: UIViewController, CLLocationManagerDelegate {
     //creating references
     @IBOutlet weak var mapView: MKMapView!
     
+    @IBOutlet weak var buttonCallUber: UIButton!
+    
     //instantiating object CllocationManager
     var locationManager = CLLocationManager()
     
     //instantiating the objet to the user's coordinates
     var userlocation = CLLocationCoordinate2D()
     
+    var uberCalled = false
    
     
     override func viewDidLoad() {
@@ -50,6 +53,43 @@ class PassengerViewController: UIViewController, CLLocationManagerDelegate {
             //creating node requests
             let request = database.child("requests")
             
+            if self.uberCalled {//uber call
+                
+                //Change the color and title of the button when user click cancel.
+                self.changeColorButtonCallUber()
+                
+                //remove request
+                let request = database.child("requests")
+                //Searches the email node and sorts by the email of the logged in user.
+                request.queryOrdered(byChild: "e-mail").queryEqual(toValue: userEmail).observeSingleEvent(of: .childAdded) { (snapshot) in
+                    //print for test the search.
+                    //print (snapshot.value)
+                    
+                    snapshot.ref.removeValue()
+                    
+                }
+                
+            }else{//uber was not called
+                
+                //Change the color and title of the button when user click cancel.
+                self.changeColorButtonCancelUber()
+                
+                //Creating request
+                //creating an array of dictionary for the registered data of the passing user.
+                let dataUser = [
+                
+                    "e-mail" : userEmail ,
+                    "nome" : "Andre Passageiro" ,
+                    "latitude" : self.userlocation.latitude,
+                    "longitude" : self.userlocation.longitude
+                ] as [String : Any]
+                
+                //Creating automatic ID for requests
+                request.childByAutoId().setValue( dataUser )
+               
+            }
+            
+            /*
             //creating an array of dictionary for the registered data of the passing user.
             let dataUser = [
             
@@ -61,12 +101,10 @@ class PassengerViewController: UIViewController, CLLocationManagerDelegate {
             
             //Creating automatic ID for requests
             request.childByAutoId().setValue( dataUser )
-            
+           */
         }
-    
-          
+     
     }//End the method calluber
-    
     
     //Method for updating user location
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
@@ -110,6 +148,22 @@ class PassengerViewController: UIViewController, CLLocationManagerDelegate {
             print("Error logout user!!")
         }
       
+    }
+    
+    func changeColorButtonCallUber () {
+        
+        self.buttonCallUber.setTitle("Call Uber!", for: .normal)
+        self.buttonCallUber.backgroundColor = UIColor(red: 0.067, green: 0.576, blue: 0.604, alpha: 1)
+        self.uberCalled = false
+        
+    }
+    
+    func changeColorButtonCancelUber() {
+        
+        self.buttonCallUber.setTitle("Cancel Uber!", for: .normal)
+        self.buttonCallUber.backgroundColor = UIColor(red: 0.831, green: 0.237, blue: 0.146, alpha: 1)
+        self.uberCalled = true
+        
     }
      
     override func viewDidAppear(_ animated: Bool) {
