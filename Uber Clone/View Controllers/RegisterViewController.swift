@@ -94,6 +94,7 @@ class RegisterViewController: UIViewController {
                                     //saves user data in firebase
                                     users.child( (user?.user.uid)! ).setValue(userdata)
                                     
+                                    //validates if user is logged, if it is, it will be redirected by the view controller.
                                     
                                 }else{
                                     print("Error authenticating user !!")

@@ -101,6 +101,7 @@
                     <navigationItem key="navigationItem" title="Uber" id="VYV-lM-zh6"/>
                     <connections>
                         <segue destination="EHa-0U-SVw" kind="presentation" identifier="segueLoginMain" id="8gn-6o-1Ao"/>
+                        <segue destination="P3O-9z-hWB" kind="presentation" identifier="segueLoginMainDriver" id="Ibo-bT-AYH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -397,13 +398,13 @@
         <!--Requests-->
         <scene sceneID="Xz3-9t-sPZ">
             <objects>
-                <tableViewController id="ja6-HM-xVN" sceneMemberID="viewController">
+                <tableViewController id="ja6-HM-xVN" customClass="DriverTableViewController" customModule="Uber_Clone" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="iVc-Ee-8Lr">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="STz-rY-FcJ">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cellReuseDriver" id="STz-rY-FcJ">
                                 <rect key="frame" x="0.0" y="24.5" width="414" height="43.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="STz-rY-FcJ" id="QRU-jJ-dAf">
@@ -417,11 +418,17 @@
                             <outlet property="delegate" destination="ja6-HM-xVN" id="KO1-Pe-4pJ"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Requests" id="7UB-nt-JLv"/>
+                    <navigationItem key="navigationItem" title="Requests" id="7UB-nt-JLv">
+                        <barButtonItem key="leftBarButtonItem" title="Logout" id="wqs-fA-LtF">
+                            <connections>
+                                <action selector="logoutDriver:" destination="ja6-HM-xVN" id="NS3-wS-3SC"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5VW-wO-ksd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3953.6231884057975" y="774.77678571428567"/>
+            <point key="canvasLocation" x="3954" y="775"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="9Lw-zj-hPB">
@@ -465,7 +472,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="P3O-9z-hWB" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="M3Z-z4-QjE">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>

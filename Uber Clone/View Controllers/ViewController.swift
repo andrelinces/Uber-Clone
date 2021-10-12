@@ -7,6 +7,7 @@
 
 import UIKit
 import FirebaseAuth
+import FirebaseDatabase
 
 class ViewController: UIViewController {
 
@@ -32,8 +33,32 @@ class ViewController: UIViewController {
             if let userLogged = user {
                 
                 //passing user to main view if he is logged in.
-                self.performSegue(withIdentifier: "segueLoginMain", sender: nil)
+                //self.performSegue(withIdentifier: "segueLoginMain", sender: nil)
                 
+                //creating object to identifier user type, and passing user para the correct view
+                let database = Database.database().reference()
+                
+                let user = database.child("users").child( userLogged.uid )
+                
+                user.observeSingleEvent(of: .value) { (snapshot) in
+                    
+                    let data = snapshot.value as? NSDictionary
+                    
+                    let userType = data!["usertype"] as! String
+                    
+                    if userType == "passenger" {
+                        
+                        //passing user to passenger view if he is logged in.
+                        self.performSegue(withIdentifier: "segueLoginMain", sender: nil)
+                        
+                    }else{
+                        
+                        //passing user to driver view if he is logged in.
+                         self.performSegue(withIdentifier: "segueLoginMainDriver", sender: nil)
+                        
+                    }
+                    
+                }
             }
             
         }

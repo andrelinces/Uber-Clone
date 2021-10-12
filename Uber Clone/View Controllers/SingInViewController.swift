@@ -30,9 +30,12 @@ class SingInViewController: UIViewController {
                         
                         if error == nil {
                             
-                            if user != nil {
+                            if user == nil {
                                 //Print to display test login
-                                //print("user successful authentication!")
+                                print("Error user login!")
+                                
+                                //validates if user is logged, if it is, it will be redirected by the view controller.
+
                                 
                                 //passing the user to the main view
                                 //self.performSegue(withIdentifier: "segueLogin", sender: nil)
@@ -40,7 +43,7 @@ class SingInViewController: UIViewController {
                             
                         }else{
                             
-                            print("Error login user!")
+                            print("Error of the authentication user")
                         }
                         
                     }
