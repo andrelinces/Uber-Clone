@@ -7,11 +7,28 @@
 
 import UIKit
 import FirebaseAuth
+import FirebaseDatabase
 
 class DriverTableViewController: UITableViewController {
     
+    var requisitionList : [DataSnapshot] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //configure database
+        
+        let database = Database.database().reference()
+        let requests = database.child("requests")
+        
+        //Recovering of the request list
+        requests.observe(.childAdded) { (snapshot) in
+            
+            self.requisitionList.append( snapshot )
+            self.tableView.reloadData()
+            
+        }
+        
     }
     
     @IBAction func logoutDriver(_ sender: Any) {
@@ -29,15 +46,19 @@ class DriverTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return self.requisitionList.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cellReuseDriver", for: indexPath)
         
-        //Configure the cell
-        cell.textLabel?.text = "test"
-        
+        //recovering the requests
+        let snapshot = self.requisitionList[ indexPath.row ]
+        if let data = snapshot.value as? [String: Any] {
+            
+            //Configure the cell
+            cell.textLabel?.text = data["e-mail"] as? String
+        }
         
         return cell
     }
