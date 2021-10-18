@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		C25FF9EA851A7763AC1D14E2 /* Pods_Uber_Clone.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 153F4860C582122AC049E1E2 /* Pods_Uber_Clone.framework */; };
+		D32BE0D2271E28B0004DE73A /* GlobalProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D32BE0D1271E28B0004DE73A /* GlobalProtocol.swift */; };
 		D3ECFA46270A4AE1005B800F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3ECFA45270A4AE1005B800F /* AppDelegate.swift */; };
 		D3ECFA48270A4AE1005B800F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3ECFA47270A4AE1005B800F /* SceneDelegate.swift */; };
 		D3ECFA4A270A4AE1005B800F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3ECFA49270A4AE1005B800F /* ViewController.swift */; };
@@ -25,6 +26,7 @@
 		153F4860C582122AC049E1E2 /* Pods_Uber_Clone.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Uber_Clone.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		20C314DEDF377B13B460F89C /* Pods-Uber Clone.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Uber Clone.debug.xcconfig"; path = "Target Support Files/Pods-Uber Clone/Pods-Uber Clone.debug.xcconfig"; sourceTree = "<group>"; };
 		B0ADECE43CFDF7654670EC5B /* Pods-Uber Clone.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Uber Clone.release.xcconfig"; path = "Target Support Files/Pods-Uber Clone/Pods-Uber Clone.release.xcconfig"; sourceTree = "<group>"; };
+		D32BE0D1271E28B0004DE73A /* GlobalProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalProtocol.swift; sourceTree = "<group>"; };
 		D3ECFA42270A4AE1005B800F /* Uber Clone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Uber Clone.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3ECFA45270A4AE1005B800F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D3ECFA47270A4AE1005B800F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -69,6 +71,38 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		D32BE0CD271D9EFE004DE73A /* GlobalHelpers */ = {
+			isa = PBXGroup;
+			children = (
+				D32BE0CE271D9F25004DE73A /* GlobalProtocol */,
+				D32BE0CF271D9F4A004DE73A /* GlobalExtension */,
+				D32BE0D0271D9FB2004DE73A /* GlobalMethods */,
+			);
+			path = GlobalHelpers;
+			sourceTree = "<group>";
+		};
+		D32BE0CE271D9F25004DE73A /* GlobalProtocol */ = {
+			isa = PBXGroup;
+			children = (
+				D32BE0D1271E28B0004DE73A /* GlobalProtocol.swift */,
+			);
+			path = GlobalProtocol;
+			sourceTree = "<group>";
+		};
+		D32BE0CF271D9F4A004DE73A /* GlobalExtension */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = GlobalExtension;
+			sourceTree = "<group>";
+		};
+		D32BE0D0271D9FB2004DE73A /* GlobalMethods */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = GlobalMethods;
+			sourceTree = "<group>";
+		};
 		D3ECFA39270A4AE1005B800F = {
 			isa = PBXGroup;
 			children = (
@@ -90,6 +124,7 @@
 		D3ECFA44270A4AE1005B800F /* Uber Clone */ = {
 			isa = PBXGroup;
 			children = (
+				D32BE0CD271D9EFE004DE73A /* GlobalHelpers */,
 				D3ECFA45270A4AE1005B800F /* AppDelegate.swift */,
 				D3ECFA5C270BCBA6005B800F /* Modals */,
 				D3ECFA5B270BCB64005B800F /* View Controllers */,
@@ -239,6 +274,7 @@
 			files = (
 				D3ECFA62270CFC19005B800F /* SingInViewController.swift in Sources */,
 				D3ECFA64270CFC6C005B800F /* RegisterViewController.swift in Sources */,
+				D32BE0D2271E28B0004DE73A /* GlobalProtocol.swift in Sources */,
 				D3ECFA4A270A4AE1005B800F /* ViewController.swift in Sources */,
 				D3ECFA68271468A8005B800F /* DriverTableViewController.swift in Sources */,
 				D3ECFA66270E63D9005B800F /* PassengerViewController.swift in Sources */,
