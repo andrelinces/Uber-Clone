@@ -12,7 +12,7 @@ protocol tableViewCompatible {
     
     var reuseIdentifier : String {get}
 
-    func celForTableView ( tableView: UITableView, atIndexPath indePath: IndexPath ) -> UITableViewCell
+    func cellForTableView ( tableView: UITableView, atIndexPath indePath: IndexPath ) -> UITableViewCell
     
 }
 

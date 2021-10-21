@@ -10,6 +10,11 @@
 		C25FF9EA851A7763AC1D14E2 /* Pods_Uber_Clone.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 153F4860C582122AC049E1E2 /* Pods_Uber_Clone.framework */; };
 		D32BE0D2271E28B0004DE73A /* GlobalProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D32BE0D1271E28B0004DE73A /* GlobalProtocol.swift */; };
 		D32BE0D4271E2CC4004DE73A /* GlobalExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D32BE0D3271E2CC4004DE73A /* GlobalExtension.swift */; };
+		D32BE0DB271EF74D004DE73A /* DriverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D32BE0DA271EF74D004DE73A /* DriverViewController.swift */; };
+		D32BE0DD271EF7C0004DE73A /* DriverDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = D32BE0DC271EF7C0004DE73A /* DriverDataSource.swift */; };
+		D32BE0DF271EF7F7004DE73A /* DriverModelCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D32BE0DE271EF7F7004DE73A /* DriverModelCell.xib */; };
+		D32BE0E1271EF806004DE73A /* DriverModelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D32BE0E0271EF806004DE73A /* DriverModelCell.swift */; };
+		D32BE0E3271EF828004DE73A /* DriverModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D32BE0E2271EF828004DE73A /* DriverModel.swift */; };
 		D3ECFA46270A4AE1005B800F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3ECFA45270A4AE1005B800F /* AppDelegate.swift */; };
 		D3ECFA48270A4AE1005B800F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3ECFA47270A4AE1005B800F /* SceneDelegate.swift */; };
 		D3ECFA4A270A4AE1005B800F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3ECFA49270A4AE1005B800F /* ViewController.swift */; };
@@ -29,6 +34,11 @@
 		B0ADECE43CFDF7654670EC5B /* Pods-Uber Clone.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Uber Clone.release.xcconfig"; path = "Target Support Files/Pods-Uber Clone/Pods-Uber Clone.release.xcconfig"; sourceTree = "<group>"; };
 		D32BE0D1271E28B0004DE73A /* GlobalProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalProtocol.swift; sourceTree = "<group>"; };
 		D32BE0D3271E2CC4004DE73A /* GlobalExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalExtension.swift; sourceTree = "<group>"; };
+		D32BE0DA271EF74D004DE73A /* DriverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverViewController.swift; sourceTree = "<group>"; };
+		D32BE0DC271EF7C0004DE73A /* DriverDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverDataSource.swift; sourceTree = "<group>"; };
+		D32BE0DE271EF7F7004DE73A /* DriverModelCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DriverModelCell.xib; sourceTree = "<group>"; };
+		D32BE0E0271EF806004DE73A /* DriverModelCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverModelCell.swift; sourceTree = "<group>"; };
+		D32BE0E2271EF828004DE73A /* DriverModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverModel.swift; sourceTree = "<group>"; };
 		D3ECFA42270A4AE1005B800F /* Uber Clone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Uber Clone.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3ECFA45270A4AE1005B800F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D3ECFA47270A4AE1005B800F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -106,6 +116,50 @@
 			path = GlobalMethods;
 			sourceTree = "<group>";
 		};
+		D32BE0D5271EF43D004DE73A /* Sections */ = {
+			isa = PBXGroup;
+			children = (
+				D32BE0D6271EF465004DE73A /* Main */,
+			);
+			path = Sections;
+			sourceTree = "<group>";
+		};
+		D32BE0D6271EF465004DE73A /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				D32BE0D7271EF566004DE73A /* DriverViewController */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		D32BE0D7271EF566004DE73A /* DriverViewController */ = {
+			isa = PBXGroup;
+			children = (
+				D32BE0D8271EF6F3004DE73A /* TableView */,
+				D32BE0DA271EF74D004DE73A /* DriverViewController.swift */,
+				D32BE0DC271EF7C0004DE73A /* DriverDataSource.swift */,
+			);
+			path = DriverViewController;
+			sourceTree = "<group>";
+		};
+		D32BE0D8271EF6F3004DE73A /* TableView */ = {
+			isa = PBXGroup;
+			children = (
+				D32BE0D9271EF702004DE73A /* Cells */,
+			);
+			path = TableView;
+			sourceTree = "<group>";
+		};
+		D32BE0D9271EF702004DE73A /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				D32BE0DE271EF7F7004DE73A /* DriverModelCell.xib */,
+				D32BE0E0271EF806004DE73A /* DriverModelCell.swift */,
+				D32BE0E2271EF828004DE73A /* DriverModel.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 		D3ECFA39270A4AE1005B800F = {
 			isa = PBXGroup;
 			children = (
@@ -128,10 +182,11 @@
 			isa = PBXGroup;
 			children = (
 				D32BE0CD271D9EFE004DE73A /* GlobalHelpers */,
-				D3ECFA45270A4AE1005B800F /* AppDelegate.swift */,
 				D3ECFA5C270BCBA6005B800F /* Modals */,
+				D32BE0D5271EF43D004DE73A /* Sections */,
 				D3ECFA5B270BCB64005B800F /* View Controllers */,
 				D3ECFA47270A4AE1005B800F /* SceneDelegate.swift */,
+				D3ECFA45270A4AE1005B800F /* AppDelegate.swift */,
 				D3ECFA4B270A4AE1005B800F /* Main.storyboard */,
 				D3ECFA4E270A4AE3005B800F /* Assets.xcassets */,
 				D3ECFA50270A4AE3005B800F /* LaunchScreen.storyboard */,
@@ -221,6 +276,7 @@
 			files = (
 				D3ECFA52270A4AE3005B800F /* LaunchScreen.storyboard in Resources */,
 				D3ECFA5A270A4D69005B800F /* GoogleService-Info.plist in Resources */,
+				D32BE0DF271EF7F7004DE73A /* DriverModelCell.xib in Resources */,
 				D3ECFA4F270A4AE3005B800F /* Assets.xcassets in Resources */,
 				D3ECFA4D270A4AE1005B800F /* Main.storyboard in Resources */,
 			);
@@ -280,9 +336,13 @@
 				D32BE0D2271E28B0004DE73A /* GlobalProtocol.swift in Sources */,
 				D3ECFA4A270A4AE1005B800F /* ViewController.swift in Sources */,
 				D3ECFA68271468A8005B800F /* DriverTableViewController.swift in Sources */,
+				D32BE0E1271EF806004DE73A /* DriverModelCell.swift in Sources */,
+				D32BE0E3271EF828004DE73A /* DriverModel.swift in Sources */,
 				D3ECFA66270E63D9005B800F /* PassengerViewController.swift in Sources */,
+				D32BE0DB271EF74D004DE73A /* DriverViewController.swift in Sources */,
 				D32BE0D4271E2CC4004DE73A /* GlobalExtension.swift in Sources */,
 				D3ECFA46270A4AE1005B800F /* AppDelegate.swift in Sources */,
+				D32BE0DD271EF7C0004DE73A /* DriverDataSource.swift in Sources */,
 				D3ECFA48270A4AE1005B800F /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

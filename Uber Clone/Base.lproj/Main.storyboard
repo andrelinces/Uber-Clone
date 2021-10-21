@@ -102,6 +102,7 @@
                     <connections>
                         <segue destination="EHa-0U-SVw" kind="presentation" identifier="segueLoginMain" id="8gn-6o-1Ao"/>
                         <segue destination="P3O-9z-hWB" kind="presentation" identifier="segueLoginMainDriver" id="Ibo-bT-AYH"/>
+                        <segue destination="xPh-pk-z1F" kind="show" identifier="DriverModelCellIdentifier" id="3rV-5u-Vbw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -483,6 +484,37 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Pv7-gb-YF5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3003" y="775"/>
+        </scene>
+        <!--Driver View Controller-->
+        <scene sceneID="DmF-sx-jNJ">
+            <objects>
+                <viewController id="xPh-pk-z1F" customClass="DriverViewController" customModule="Uber_Clone" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="dB7-ST-mge">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="sgo-9z-SFB">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="AG3-qw-kzX"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="sgo-9z-SFB" secondAttribute="bottom" id="4KF-6J-37Z"/>
+                            <constraint firstItem="sgo-9z-SFB" firstAttribute="top" secondItem="dB7-ST-mge" secondAttribute="top" id="i0T-lP-oE4"/>
+                            <constraint firstItem="sgo-9z-SFB" firstAttribute="leading" secondItem="dB7-ST-mge" secondAttribute="leading" id="jJl-O6-p18"/>
+                            <constraint firstAttribute="trailing" secondItem="sgo-9z-SFB" secondAttribute="trailing" id="wQD-kb-Tt0"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="Hob-93-ApE"/>
+                    <connections>
+                        <outlet property="tableView" destination="sgo-9z-SFB" id="TcN-st-Ald"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="i8t-Py-dfU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3003" y="1527"/>
         </scene>
     </scenes>
     <resources>

@@ -11,9 +11,6 @@ import FirebaseDatabase
 
 class ViewController: UIViewController {
 
-    
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -54,7 +51,7 @@ class ViewController: UIViewController {
                     }else{
                         
                         //passing user to driver view if he is logged in.
-                         self.performSegue(withIdentifier: "segueLoginMainDriver", sender: nil)
+                         self.performSegue(withIdentifier: "DriverModelCellIdentifier", sender: nil)
                         
                     }
                     
@@ -62,9 +59,7 @@ class ViewController: UIViewController {
             }
             
         }
-        
-        
-        
+           
     }
     
     //Hiding navigation bar
