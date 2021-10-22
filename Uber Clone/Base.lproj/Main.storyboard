@@ -102,7 +102,7 @@
                     <connections>
                         <segue destination="EHa-0U-SVw" kind="presentation" identifier="segueLoginMain" id="8gn-6o-1Ao"/>
                         <segue destination="P3O-9z-hWB" kind="presentation" identifier="segueLoginMainDriver" id="Ibo-bT-AYH"/>
-                        <segue destination="xPh-pk-z1F" kind="show" identifier="DriverModelCellIdentifier" id="3rV-5u-Vbw"/>
+                        <segue destination="hck-ax-37T" kind="show" identifier="DriverModelCellIdentifier" id="3rV-5u-Vbw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -485,7 +485,7 @@
             </objects>
             <point key="canvasLocation" x="3003" y="775"/>
         </scene>
-        <!--Driver View Controller-->
+        <!--Uber Clone-->
         <scene sceneID="DmF-sx-jNJ">
             <objects>
                 <viewController id="xPh-pk-z1F" customClass="DriverViewController" customModule="Uber_Clone" customModuleProvider="target" sceneMemberID="viewController">
@@ -507,14 +507,39 @@
                             <constraint firstAttribute="trailing" secondItem="sgo-9z-SFB" secondAttribute="trailing" id="wQD-kb-Tt0"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="Hob-93-ApE"/>
+                    <navigationItem key="navigationItem" title="Uber Clone" id="Hob-93-ApE">
+                        <barButtonItem key="leftBarButtonItem" title="Logout" id="lU1-t6-CSL">
+                            <connections>
+                                <action selector="logoutDriver:" destination="xPh-pk-z1F" id="dIt-tn-FCO"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="sgo-9z-SFB" id="TcN-st-Ald"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="i8t-Py-dfU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3003" y="1527"/>
+            <point key="canvasLocation" x="3913.04347826087" y="1526.7857142857142"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="AgS-d3-f5A">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="fullScreen" id="hck-ax-37T" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="qUr-oK-IiM"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="7J6-Cc-igz">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="xPh-pk-z1F" kind="relationship" relationship="rootViewController" id="bVG-1v-ugP"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gsh-wK-NtU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3002.898550724638" y="1526.7857142857142"/>
         </scene>
     </scenes>
     <resources>

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class DriverViewController: UIViewController, DriverModelCellCallBack {
     
@@ -23,6 +24,27 @@ class DriverViewController: UIViewController, DriverModelCellCallBack {
         setupTableView()
         
     }
+    
+    @IBAction func logoutDriver (_ sender: Any) {
+        
+        let authentication = Auth.auth()
+        
+        do {
+            try authentication.signOut()
+            print("Sucessful logout user !")
+            dismiss(animated: true, completion: nil)
+        } catch  {
+            print("Error logout user!!")
+        }
+    }
+//    do {
+//        try authentication.signOut()
+//        print("Successful logout user !")
+//        dismiss(animated: true, completion: nil)
+//    } catch  {
+//        print("Error logout user!!")
+//    }
+
     
     func setupTableView (){
         
