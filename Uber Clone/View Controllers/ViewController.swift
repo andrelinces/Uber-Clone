@@ -41,20 +41,25 @@ class ViewController: UIViewController {
                     
                     let data = snapshot.value as? NSDictionary
                     
-                    let userType = data!["usertype"] as! String
-                    
-                    if userType == "passenger" {
+                    //testing data to avoid user deleted error
+                    if data != nil {
                         
-                        //passing user to passenger view if he is logged in.
-                        self.performSegue(withIdentifier: "segueLoginMain", sender: nil)
+                        let userType = data!["usertype"] as! String
                         
-                    }else{
-                        
-                        //passing user to driver view if he is logged in.
-                         self.performSegue(withIdentifier: "DriverModelCellIdentifier", sender: nil)
+                        if userType == "passenger" {
+                            
+                            //passing user to passenger view if he is logged in.
+                            self.performSegue(withIdentifier: "segueLoginMain", sender: nil)
+                            
+                        }else{
+                            
+                            //passing user to driver view if he is logged in.
+                             self.performSegue(withIdentifier: "DriverModelCellIdentifier", sender: nil)
+                            
+                        }
                         
                     }
-                    
+                     
                 }
             }
             

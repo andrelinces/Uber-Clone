@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseDatabase
 
 protocol DriverModelCellCallBack: class {
     
@@ -14,12 +15,13 @@ protocol DriverModelCellCallBack: class {
 }
 
 class DriverModel: tableViewCompatible {
-    internal init (delegate: DriverModelCellCallBack, tituloCard: String, distanceDriver: String, imageDriver: String) {
+    internal init (delegate: DriverModelCellCallBack, tituloCard: String, distanceDriver: String, imageDriver: String ) {
         
         self.delegate = delegate
         self.tituloCard = tituloCard
         self.distanceDriver = distanceDriver
         self.imageDriver = imageDriver
+        
     }
     
     open weak var delegate : DriverModelCellCallBack?
@@ -33,6 +35,8 @@ class DriverModel: tableViewCompatible {
     var distanceDriver: String
     var imageDriver: String
     
+    var requisitionList : [DataSnapshot] = []
+    
     func cellForTableView(tableView: UITableView, atIndexPath indexPath: IndexPath) -> UITableViewCell {
         
         if let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath) as? DriverModelCell {
@@ -40,9 +44,19 @@ class DriverModel: tableViewCompatible {
             //inicializando células (design, values, images, etc...)
             cell.setupDesign()
             
-            cell.setupValues(tituloCard: tituloCard, distanceCard: distanceDriver )
+            cell.setupValues(tituloCard: tituloCard  , distanceCard: distanceDriver )
             
             cell.setupImage(imageDriver: imageDriver)
+             
+//            let snapshot = self.requisitionList[ indexPath.row ]
+//
+//            if let data = snapshot.value as? [String: Any] {
+//
+//                //Configure the cell
+//
+//                cell.setupValues(tituloCard: data["e-mail"] as! [DataSnapshot], distanceCard: distanceDriver)
+//
+//            }
             
             //Adicionando cliques nos cards
             let gestureCliqueCard = myTapCustom(target: self, action: #selector(acaoCliqueCardView))

@@ -71,37 +71,39 @@ class PassengerViewController: UIViewController, CLLocationManagerDelegate {
                 
             }else{//uber was not called
                 
-                //Change the color and title of the button when user click cancel.
-                self.changeColorButtonCancelUber()
-                
-                //Creating request
-                //creating an array of dictionary for the registered data of the passing user.
-                let dataUser = [
-                
-                    "e-mail" : userEmail ,
-                    "nome" : "Andre Passageiro" ,
-                    "latitude" : self.userlocation.latitude,
-                    "longitude" : self.userlocation.longitude
-                ] as [String : Any]
-                
-                //Creating automatic ID for requests
-                request.childByAutoId().setValue( dataUser )
-               
+                if let userId = authentication.currentUser?.uid {
+                    let database = Database.database().reference()
+                    //retrive username
+                    let users = database.child("users").child(userId)
+                    
+                    users.observeSingleEvent(of: .value) { snapshot in
+                        
+                        let data = snapshot.value as? NSDictionary
+                        
+                        let userName = data!["name"] as? String
+                        
+                        //Creating request
+                        //creating an array of dictionary for the registered data of the passing user.
+                        let dataUser = [
+                        
+                            "e-mail" : userEmail ,
+                            "name" : userName ,
+                            "latitude" : self.userlocation.latitude,
+                            "longitude" : self.userlocation.longitude
+                        ] as [String : Any]
+                        
+                        //Creating automatic ID for requests
+                        request.childByAutoId().setValue( dataUser )
+                        
+                    }
+                    //Change the color and title of the button when user click cancel.
+                    self.changeColorButtonCancelUber()
+                      
+                }
+                  
             }
             
-            /*
-            //creating an array of dictionary for the registered data of the passing user.
-            let dataUser = [
-            
-                "e-mail" : userEmail ,
-                "nome" : "Andre Passageiro" ,
-                "latitude" : self.userlocation.latitude,
-                "longitude" : self.userlocation.longitude
-            ] as [String : Any]
-            
-            //Creating automatic ID for requests
-            request.childByAutoId().setValue( dataUser )
-           */
+           
         }
      
     }//End the method calluber

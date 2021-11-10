@@ -15,6 +15,7 @@
 		D32BE0DF271EF7F7004DE73A /* DriverModelCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D32BE0DE271EF7F7004DE73A /* DriverModelCell.xib */; };
 		D32BE0E1271EF806004DE73A /* DriverModelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D32BE0E0271EF806004DE73A /* DriverModelCell.swift */; };
 		D32BE0E3271EF828004DE73A /* DriverModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D32BE0E2271EF828004DE73A /* DriverModel.swift */; };
+		D397CB3F27340E5A00157149 /* Passenger.swift in Sources */ = {isa = PBXBuildFile; fileRef = D397CB3E27340E5A00157149 /* Passenger.swift */; };
 		D3ECFA46270A4AE1005B800F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3ECFA45270A4AE1005B800F /* AppDelegate.swift */; };
 		D3ECFA48270A4AE1005B800F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3ECFA47270A4AE1005B800F /* SceneDelegate.swift */; };
 		D3ECFA4A270A4AE1005B800F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3ECFA49270A4AE1005B800F /* ViewController.swift */; };
@@ -39,6 +40,7 @@
 		D32BE0DE271EF7F7004DE73A /* DriverModelCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DriverModelCell.xib; sourceTree = "<group>"; };
 		D32BE0E0271EF806004DE73A /* DriverModelCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverModelCell.swift; sourceTree = "<group>"; };
 		D32BE0E2271EF828004DE73A /* DriverModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverModel.swift; sourceTree = "<group>"; };
+		D397CB3E27340E5A00157149 /* Passenger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Passenger.swift; sourceTree = "<group>"; };
 		D3ECFA42270A4AE1005B800F /* Uber Clone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Uber Clone.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3ECFA45270A4AE1005B800F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D3ECFA47270A4AE1005B800F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -160,6 +162,22 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
+		D397CB3C27340E2200157149 /* DataBase */ = {
+			isa = PBXGroup;
+			children = (
+				D397CB3D27340E3000157149 /* Objects */,
+			);
+			path = DataBase;
+			sourceTree = "<group>";
+		};
+		D397CB3D27340E3000157149 /* Objects */ = {
+			isa = PBXGroup;
+			children = (
+				D397CB3E27340E5A00157149 /* Passenger.swift */,
+			);
+			path = Objects;
+			sourceTree = "<group>";
+		};
 		D3ECFA39270A4AE1005B800F = {
 			isa = PBXGroup;
 			children = (
@@ -181,6 +199,7 @@
 		D3ECFA44270A4AE1005B800F /* Uber Clone */ = {
 			isa = PBXGroup;
 			children = (
+				D397CB3C27340E2200157149 /* DataBase */,
 				D32BE0CD271D9EFE004DE73A /* GlobalHelpers */,
 				D3ECFA5C270BCBA6005B800F /* Modals */,
 				D32BE0D5271EF43D004DE73A /* Sections */,
@@ -339,6 +358,7 @@
 				D32BE0E1271EF806004DE73A /* DriverModelCell.swift in Sources */,
 				D32BE0E3271EF828004DE73A /* DriverModel.swift in Sources */,
 				D3ECFA66270E63D9005B800F /* PassengerViewController.swift in Sources */,
+				D397CB3F27340E5A00157149 /* Passenger.swift in Sources */,
 				D32BE0DB271EF74D004DE73A /* DriverViewController.swift in Sources */,
 				D32BE0D4271E2CC4004DE73A /* GlobalExtension.swift in Sources */,
 				D3ECFA46270A4AE1005B800F /* AppDelegate.swift in Sources */,

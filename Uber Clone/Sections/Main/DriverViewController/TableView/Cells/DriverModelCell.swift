@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseDatabase
 
 class DriverModelCell: UITableViewCell {
     
@@ -22,7 +23,7 @@ class DriverModelCell: UITableViewCell {
     
     func setupValues (tituloCard: String, distanceCard: String) {
         
-        labelDriverName.text = tituloCard
+        labelDriverName.text = tituloCard 
         labelDriverDistance.text = distanceCard
         
     }
@@ -32,6 +33,5 @@ class DriverModelCell: UITableViewCell {
        imageViewDriver.image = UIImage(named: imageDriver)
         
     }
-    
-    
+     
 }
