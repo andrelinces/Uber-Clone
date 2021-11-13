@@ -11,7 +11,7 @@ import FirebaseDatabase
 import MapKit
 
 
-class DriverViewController: UIViewController, DriverModelCellCallBack {
+class DriverViewController: UIViewController, DriverModelCellCallBack, CLLocationManagerDelegate {
     
     func acaoCliqueCard(indexPath: IndexPath) {
         print("clicou no card")
@@ -23,6 +23,7 @@ class DriverViewController: UIViewController, DriverModelCellCallBack {
     
     var passenger = [Passenger]()
     
+    //Configuring driver location
     //instantiating object CllocationManager
     var locationManager = CLLocationManager()
     
@@ -34,8 +35,34 @@ class DriverViewController: UIViewController, DriverModelCellCallBack {
         
        recoveredData()
        setupTableView()
+        //own class that will manage the localization features
+        locationManager.delegate = self
+        //Defining the best location accuracy
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        //Request user location authorization
+        locationManager.requestWhenInUseAuthorization()
+        //Updating user location
+        locationManager.startUpdatingLocation()
            
     }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        
+        if let coordenadas = manager.location?.coordinate {
+            
+            self.driverlocation = coordenadas
+            
+        }
+        
+    }
+    
+    func distanceLocation() {
+        
+        
+        
+    }
+    
+    
     
     //testing data recover of the firebase
     var requisitionList = [DataSnapshot]()
@@ -105,6 +132,7 @@ class DriverViewController: UIViewController, DriverModelCellCallBack {
             var latitude : CLLocationDegrees = 0
             var longitude : CLLocationDegrees = 0
             var nome : String = ""
+            //var passengerDistance : Int
             
             print("requisitions : \(self.requisitionList.count)")
             
@@ -124,14 +152,26 @@ class DriverViewController: UIViewController, DriverModelCellCallBack {
                     
                     print("e-mail: \(email) \n"  +  "name: \(nome) \n" + "latitude: \(latitude) \n" + "longitude: \(longitude)" )
                     
+                    let driverLocal = CLLocation(latitude: self.driverlocation.latitude, longitude: self.driverlocation.longitude)
+                    
+                    let passengerLocal = CLLocation(latitude: latitude, longitude: longitude)
+                    
+                    let meterDistance = driverLocal.distance(from: passengerLocal)
+                    
+                    let KmDistance = meterDistance / 1000
+                    let finalDistance = round(KmDistance)
+                    
+                    print("Meter Distance: \( finalDistance)")
+                    
                     DispatchQueue.main.async() {
                         print("email antes do append... \(email)")
                         
                         print("email antes do append Passenger ... \(self.passenger.count)")
                         
-                        self.passenger.append(Passenger(email: email, longitude: longitude, latitude: latitude, nome: nome))
+                        
+                        self.passenger.append(Passenger(email: email, longitude: longitude, latitude: latitude, nome: nome, distancePassenger: finalDistance ))
 //                        if self.requisitionList.count == self.passenger.count {
-                            
+                    
                             self.setupTableView()
                             self.tableView.reloadData()
                             print("contador: \(self.passenger.count)")
@@ -174,7 +214,7 @@ class DriverViewController: UIViewController, DriverModelCellCallBack {
         
         for passageiro in passenger {
             
-            let driverModellCard1 = DriverModel(delegate: self, tituloCard: passageiro.nome, distanceDriver: passageiro.email , imageDriver: "menu_cliente")
+            let driverModellCard1 = DriverModel(delegate: self, tituloCard: passageiro.nome, distanceDriver: passageiro.distancePassenger ,  imageDriver: "menu_cliente", phonePassenger: 77)
             
             dataSource.data.append(driverModellCard1)
             

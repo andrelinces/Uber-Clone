@@ -21,10 +21,10 @@ class DriverModelCell: UITableViewCell {
         
     }
     
-    func setupValues (tituloCard: String, distanceCard: String) {
+    func setupValues (tituloCard: String, distanceCard: Double) {
         
         labelDriverName.text = tituloCard 
-        labelDriverDistance.text = distanceCard
+        labelDriverDistance.text = String(distanceCard)
         
     }
     

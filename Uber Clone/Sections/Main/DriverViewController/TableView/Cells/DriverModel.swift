@@ -15,13 +15,13 @@ protocol DriverModelCellCallBack: class {
 }
 
 class DriverModel: tableViewCompatible {
-    internal init (delegate: DriverModelCellCallBack, tituloCard: String, distanceDriver: String, imageDriver: String ) {
+    internal init (delegate: DriverModelCellCallBack, tituloCard: String, distanceDriver: Double, imageDriver: String, phonePassenger: Int ) {
         
         self.delegate = delegate
         self.tituloCard = tituloCard
         self.distanceDriver = distanceDriver
         self.imageDriver = imageDriver
-        
+        self.phonePassenger = phonePassenger
     }
     
     open weak var delegate : DriverModelCellCallBack?
@@ -32,8 +32,9 @@ class DriverModel: tableViewCompatible {
     
     //variáveis de inicialização
     var tituloCard : String
-    var distanceDriver: String
+    var distanceDriver: Double
     var imageDriver: String
+    var phonePassenger: Int
     
     var requisitionList : [DataSnapshot] = []
     
@@ -44,7 +45,7 @@ class DriverModel: tableViewCompatible {
             //inicializando células (design, values, images, etc...)
             cell.setupDesign()
             
-            cell.setupValues(tituloCard: tituloCard  , distanceCard: distanceDriver )
+            cell.setupValues(tituloCard: tituloCard, distanceCard: distanceDriver )
             
             cell.setupImage(imageDriver: imageDriver)
              
