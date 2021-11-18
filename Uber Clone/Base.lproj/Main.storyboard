@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="2bA-af-9wq">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="2bA-af-9wq">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -406,7 +407,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cellReuseDriver" id="STz-rY-FcJ">
-                                <rect key="frame" x="0.0" y="24.5" width="414" height="43.5"/>
+                                <rect key="frame" x="0.0" y="44.5" width="414" height="43.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="STz-rY-FcJ" id="QRU-jJ-dAf">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
@@ -516,11 +517,60 @@
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="sgo-9z-SFB" id="TcN-st-Ald"/>
+                        <segue destination="xt0-AY-WY1" kind="show" identifier="segueAcceptRace" id="khY-dy-h4Y"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="i8t-Py-dfU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3913.04347826087" y="1526.7857142857142"/>
+        </scene>
+        <!--Accept Race View Controller-->
+        <scene sceneID="7BL-oW-Dml">
+            <objects>
+                <viewController modalPresentationStyle="overFullScreen" id="xt0-AY-WY1" customClass="AcceptRaceViewController" customModule="Uber_Clone" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="0yc-vP-HYT">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="HZ5-6X-tIj">
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                            </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YTS-p3-YCw">
+                                <rect key="frame" x="0.0" y="782" width="414" height="80"/>
+                                <color key="backgroundColor" red="0.066666666669999999" green="0.57647058819999997" blue="0.60392156860000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="X2W-AX-lIK"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <state key="normal" title="Accept Race">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="buttonSingin:" destination="vdT-16-2AC" eventType="touchUpInside" id="kxj-pl-njL"/>
+                                    <action selector="callUber:" destination="bC0-eD-mOM" eventType="touchUpInside" id="lp1-93-nM0"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="389-yy-4LU"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="YTS-p3-YCw" firstAttribute="leading" secondItem="389-yy-4LU" secondAttribute="leading" id="7gi-vX-IQP"/>
+                            <constraint firstItem="389-yy-4LU" firstAttribute="trailing" secondItem="HZ5-6X-tIj" secondAttribute="trailing" id="D68-mA-uu6"/>
+                            <constraint firstItem="YTS-p3-YCw" firstAttribute="bottom" secondItem="389-yy-4LU" secondAttribute="bottom" id="EIa-VE-JuR"/>
+                            <constraint firstItem="HZ5-6X-tIj" firstAttribute="bottom" secondItem="389-yy-4LU" secondAttribute="bottom" id="EKs-6O-eBe"/>
+                            <constraint firstItem="HZ5-6X-tIj" firstAttribute="top" secondItem="389-yy-4LU" secondAttribute="top" id="b7J-jm-Gf5"/>
+                            <constraint firstItem="YTS-p3-YCw" firstAttribute="trailing" secondItem="389-yy-4LU" secondAttribute="trailing" id="bUR-tk-SkI"/>
+                            <constraint firstItem="HZ5-6X-tIj" firstAttribute="leading" secondItem="389-yy-4LU" secondAttribute="leading" id="xdK-ys-r1t"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="QDj-bI-7p5"/>
+                    <connections>
+                        <outlet property="accpetRaceMap" destination="HZ5-6X-tIj" id="59h-9U-TRM"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3dQ-AN-V1g" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4756.521739130435" y="1526.7857142857142"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="AgS-d3-f5A">

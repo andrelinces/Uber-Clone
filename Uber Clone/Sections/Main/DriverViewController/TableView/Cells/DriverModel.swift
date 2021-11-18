@@ -59,7 +59,7 @@ class DriverModel: tableViewCompatible {
 //
 //            }
             
-            //Adicionando cliques nos cards
+            //adding clicks to cards
             let gestureCliqueCard = myTapCustom(target: self, action: #selector(acaoCliqueCardView))
             gestureCliqueCard.indexPath = indexPath
             
