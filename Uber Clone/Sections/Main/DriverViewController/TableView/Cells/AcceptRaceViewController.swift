@@ -25,9 +25,6 @@ class AcceptRaceViewController: UIViewController, CLLocationManagerDelegate {
     @IBAction func acceptRace(_ sender: Any) {
         
         //Update requisition
-        
-        
-        //Displays the path for the passenger on the map.
         let database = Database.database().reference()
         let requests = database.child("requests")
         
@@ -44,6 +41,29 @@ class AcceptRaceViewController: UIViewController, CLLocationManagerDelegate {
             
         }
         
+        //Displays the path for the passenger on the map.
+        
+        //Needs create an object of the type Cllocation for o ClGeocoder, so and i'll use in Mkplacemark
+        let passengerCLLocation = CLLocation(latitude: passengerLocal.latitude, longitude: passengerLocal.longitude)
+        //Create reverseGlGeocoder for retrive o objeto and use Mkplacemark
+        CLGeocoder().reverseGeocodeLocation(passengerCLLocation) { ( local, erro ) in
+            
+            if erro == nil {
+                
+                if let localData = local?.first {
+                    
+                    let placeMark = MKPlacemark(placemark: localData)
+                    let mapItem = MKMapItem(placemark: placeMark)
+                    mapItem.name = self.passengerName
+                    
+                    let options = [MKLaunchOptionsDirectionsModeKey: MKLaunchOptionsDirectionsModeDriving]
+                    mapItem.openInMaps(launchOptions: options)
+                }
+            }
+            
+        }
+        
+      
     }
     
     

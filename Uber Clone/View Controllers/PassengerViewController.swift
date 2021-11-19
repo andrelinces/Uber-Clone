@@ -25,6 +25,8 @@ class PassengerViewController: UIViewController, CLLocationManagerDelegate {
     var uberCalled = false
    
     
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -36,6 +38,28 @@ class PassengerViewController: UIViewController, CLLocationManagerDelegate {
         locationManager.requestWhenInUseAuthorization()
         //Updating user location
         locationManager.startUpdatingLocation()
+        
+        //Check if you already have an uber request.
+        let database = Database.database().reference()
+        let authentication = Auth.auth()
+        
+        if let emailUser = authentication.currentUser?.email {
+            
+            let requests = database.child("requests")
+            let requestsConsul = requests.queryOrdered(byChild: "email").queryEqual(toValue: emailUser)
+            
+            requestsConsul.observeSingleEvent(of: .childAdded) { snapshot in
+                
+                if snapshot.value != nil {
+                    
+                    self.buttonCallUber
+                    
+                }
+                
+            }
+            
+        }
+        
         
     }
     
