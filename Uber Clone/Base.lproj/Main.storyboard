@@ -546,6 +546,7 @@
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
+                                    <action selector="acceptRace:" destination="xt0-AY-WY1" eventType="touchUpInside" id="T6o-wB-Nv9"/>
                                     <action selector="buttonSingin:" destination="vdT-16-2AC" eventType="touchUpInside" id="kxj-pl-njL"/>
                                     <action selector="callUber:" destination="bC0-eD-mOM" eventType="touchUpInside" id="lp1-93-nM0"/>
                                 </connections>

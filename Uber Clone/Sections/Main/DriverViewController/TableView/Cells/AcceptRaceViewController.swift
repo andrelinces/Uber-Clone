@@ -20,6 +20,32 @@ class AcceptRaceViewController: UIViewController, CLLocationManagerDelegate {
     var passengerEmail = ""
     var passengerLocal = CLLocationCoordinate2D()
     var driverlocation = CLLocationCoordinate2D()
+
+    
+    @IBAction func acceptRace(_ sender: Any) {
+        
+        //Update requisition
+        
+        
+        //Displays the path for the passenger on the map.
+        let database = Database.database().reference()
+        let requests = database.child("requests")
+        
+        requests.queryOrdered(byChild: "e-mail").queryEqual(toValue: self.passengerEmail).observeSingleEvent(of: .childAdded) { snapshot in
+            
+            let driverData = [
+            
+                "DriverLatitude" : self.driverlocation.latitude,
+                "DriverLongitude" : self.driverlocation.longitude
+            
+            ]
+            
+            snapshot.ref.updateChildValues(driverData)
+            
+        }
+        
+    }
+    
     
     func initiate (passengerName: String, passengerEmail: String, passengerLocal: CLLocationCoordinate2D, driverLocation: CLLocationCoordinate2D) {
         
