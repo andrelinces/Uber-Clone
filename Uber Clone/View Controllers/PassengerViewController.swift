@@ -126,8 +126,7 @@ class PassengerViewController: UIViewController, CLLocationManagerDelegate {
                 }
                   
             }
-            
-           
+             
         }
      
     }//End the method calluber
