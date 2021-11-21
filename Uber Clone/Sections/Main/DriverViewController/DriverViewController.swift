@@ -81,7 +81,7 @@ class DriverViewController: UIViewController, DriverModelCellCallBack, CLLocatio
                             //                        if self.requisitionList.count == self.passenger.count {
                             
                             
-                            if listaTeste.count == data.count {
+                            if listaTeste.count == self.passenger.count {
                                 
                                 acceptRaceViewController.initiate(passengerName: listaTeste[indexPath.row].nome, passengerEmail: listaTeste[indexPath.row].email, passengerLocal: CLLocationCoordinate2D(latitude: listaTeste[indexPath.row].latitude, longitude: listaTeste[indexPath.row].longitude), driverLocation: self.driverlocation)
                                 
