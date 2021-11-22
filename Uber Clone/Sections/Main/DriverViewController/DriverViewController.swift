@@ -345,7 +345,7 @@ class DriverViewController: UIViewController, DriverModelCellCallBack, CLLocatio
         }
        
     }
-    
+    //Function responsible for assembling the custom tableview.
     func setupTableView (){
         
         dataSource.data = [Any]()
@@ -355,7 +355,7 @@ class DriverViewController: UIViewController, DriverModelCellCallBack, CLLocatio
 //
 //        dataSource.data.append(driverModellCard1)
 //        dataSource.data.append(driverModellCard2)
-        
+        //Mounts the model cell in the accord with to requests open on database.
         for passageiro in passenger {
             
             let driverModellCard1 = DriverModel(delegate: self, tituloCard: passageiro.nome, distanceDriver: passageiro.distancePassenger ,  imageDriver: "menu_cliente", phonePassenger: 77)

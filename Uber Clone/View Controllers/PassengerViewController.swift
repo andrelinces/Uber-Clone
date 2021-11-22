@@ -46,13 +46,17 @@ class PassengerViewController: UIViewController, CLLocationManagerDelegate {
             let requests = database.child("requests")
             let requestsConsul = requests.queryOrdered(byChild: "email").queryEqual(toValue: emailUser)
             
+            //Creates a listener so when the user calls uber he can cancel.
             requestsConsul.observeSingleEvent(of: .childAdded) { snapshot in
-                
-                if snapshot.value != nil {
+             if snapshot.value != nil {
                     //Cancels the passenger's run.
                     self.buttonCallUber
                     
                 }
+                
+            //Creates a listener only when the driver accepts race of the uber.
+                
+                
             }
         }
     }
