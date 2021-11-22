@@ -25,8 +25,6 @@ class PassengerViewController: UIViewController, CLLocationManagerDelegate {
     var uberCalled = false
    
     
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -51,16 +49,12 @@ class PassengerViewController: UIViewController, CLLocationManagerDelegate {
             requestsConsul.observeSingleEvent(of: .childAdded) { snapshot in
                 
                 if snapshot.value != nil {
-                    
+                    //Cancels the passenger's run.
                     self.buttonCallUber
                     
                 }
-                
             }
-            
         }
-        
-        
     }
     
     //Creating references of the button call uber
@@ -87,7 +81,7 @@ class PassengerViewController: UIViewController, CLLocationManagerDelegate {
                 //Searches the email node and sorts by the email of the logged in user.
                 request.queryOrdered(byChild: "e-mail").queryEqual(toValue: userEmail).observeSingleEvent(of: .childAdded) { (snapshot) in
                     //print for test the search.
-                    //print (snapshot.value)
+                    print ("CallUber Snapshot value: \(snapshot.value)")
                     
                     snapshot.ref.removeValue()
                     
@@ -156,9 +150,6 @@ class PassengerViewController: UIViewController, CLLocationManagerDelegate {
         }
           
     }
-    
-    //let region = MKCoordinateRegion(center: <#T##CLLocationCoordinate2D#>, span: <#T##MKCoordinateSpan#>)
-    //let mapView = MKMapView.setRegion(self.region)
     
     //Logout user
     @IBAction func logoutUser(_ sender: Any) {

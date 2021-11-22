@@ -14,6 +14,19 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //Aguarda um determinado tempo para chamar uma função de forma assincrona
+//        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+//        // create the alert
+//                let alert = UIAlertController(title: "My Title", message: "This is my message.", preferredStyle: UIAlertController.Style.alert)
+//
+//                // add an action (button)
+//                alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+//
+//                // show the alert
+//                self.present(alert, animated: true, completion: nil)
+//
+//            print("Recebeu o tempo do alerta!!!")
+//        }
         //retriveing the objetc
         let authentication = Auth.auth()
         

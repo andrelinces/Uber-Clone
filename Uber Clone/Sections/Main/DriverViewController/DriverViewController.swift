@@ -19,7 +19,7 @@ class DriverViewController: UIViewController, DriverModelCellCallBack, CLLocatio
         performSegue(withIdentifier: "segueAcceptRace", sender: indexPath)
          
     }
-    
+    //Sent data for view AcceptRaceViewController.
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         print("Teste do prepare:")
         if let acceptRaceViewController = segue.destination as? AcceptRaceViewController {
@@ -34,7 +34,7 @@ class DriverViewController: UIViewController, DriverModelCellCallBack, CLLocatio
                 //Creted database Reference
                 let requests = Database.database().reference().child("requests")
                 
-                //Recovering of the request list
+                //Recovering of the request list on dataBase
                 requests.observe(.childAdded) { (snapshot) in
                     
                     var email : String = ""
@@ -43,12 +43,7 @@ class DriverViewController: UIViewController, DriverModelCellCallBack, CLLocatio
                     var nome : String = ""
                     
                     print("requisitions : \(self.requisitionList.count)")
-                    
-                    //            for indexPassenger in 0..<self.requisitionList.count {
-                    //                print("indexPassenger... \(indexPassenger)")
-                    
-                    //recovering the requests
-                    //                let snapshot = self.requisitionList[ indexPassenger ]
+                  
                     if let data = snapshot.value as? [String: Any] {
                         
                         //Configure the cell
@@ -76,10 +71,8 @@ class DriverViewController: UIViewController, DriverModelCellCallBack, CLLocatio
                             print("Requisicao do append Passenger ... \(self.passenger.count)")
                             
                             
-                            
+                            //Mount a test list withfor display on view Driver.
                             listaTeste.append(Passenger(email: email, longitude: longitude, latitude: latitude, nome: nome, distancePassenger: finalDistance ) )
-                            //                        if self.requisitionList.count == self.passenger.count {
-                            
                             
                             if listaTeste.count == self.passenger.count {
                                 
