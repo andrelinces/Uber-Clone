@@ -58,6 +58,7 @@ class AcceptRaceViewController: UIViewController, CLLocationManagerDelegate {
                     
                     let options = [MKLaunchOptionsDirectionsModeKey: MKLaunchOptionsDirectionsModeDriving]
                     mapItem.openInMaps(launchOptions: options)
+                    
                 }
             }
             

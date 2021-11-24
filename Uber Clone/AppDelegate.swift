@@ -66,7 +66,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
                 
                 ATTrackingManager.requestTrackingAuthorization(completionHandler: { status in
                     DispatchQueue.main.async {
-                        print("exibir track")
+                        //print("exibir track")
                         self.localNotification()
                     }
                 })
@@ -92,7 +92,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
             if error != nil {
                 print("Error : \(error)")
             }else if granted {
-                print("Aceitou")
+                //print("Aceitou")
                 self.requestIDFA()
             }
         }

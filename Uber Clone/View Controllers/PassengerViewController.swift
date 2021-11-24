@@ -22,6 +22,9 @@ class PassengerViewController: UIViewController, CLLocationManagerDelegate {
     //instantiating the objet to the user's coordinates
     var userlocation = CLLocationCoordinate2D()
     
+    //instantiating the objet to the user's coordinates
+    var driverLocation = CLLocationCoordinate2D()
+    
     var uberCalled = false
    
     
@@ -36,29 +39,65 @@ class PassengerViewController: UIViewController, CLLocationManagerDelegate {
         locationManager.requestWhenInUseAuthorization()
         //Updating user location
         locationManager.startUpdatingLocation()
-        
+
         //Check if you already have an uber request.
-        let database = Database.database().reference()
-        let authentication = Auth.auth()
+//        let database = Database.database().reference()
+//        let authentication = Auth.auth()
+//
+//        if let emailUser = authentication.currentUser?.email {
+//
+//            let requests = database.child("requests")
+//            let requestsConsul = requests.queryOrdered(byChild: "email").queryEqual(toValue: emailUser)
+//
+//            //Creates a listener so when the user calls uber he can cancel.
+//            requestsConsul.observeSingleEvent(of: .childAdded) { snapshot in
+//                if snapshot.value != nil {
+//                    //Cancels the passenger's run.
+//                    self.buttonCallUber
+//                }
+//                print("Passou depois da cloure")
+//            //Creates a listener only when the driver accepts race of the uber.
+//                requestsConsul.observeSingleEvent(of: .childChanged) { snapshot in
+//
+//                    if let data = snapshot.value as? [String: Any] {
+//
+//                        if let driverLat = data["DriverLatitude"] {
+//
+//                            if let driverLon = data["DriverLongitude"] {
+//
+//                                self.driverLocation = CLLocationCoordinate2D(latitude: driverLat as! CLLocationDegrees as! CLLocationDegrees, longitude: driverLon as! CLLocationDegrees)
+//                                self.displayDriverPassenger()
+//
+//                            }
+//                        }
+//                    }
+//
+//                }
+//
+//            }
+//
+//
+//        }
+    }
+    
+    func  displayDriverPassenger() {
+        print("entrou na funcao display: \(buttonCallUber)")
+        //retrive distance between driver and passenger
+        let driverLocations = CLLocation(latitude: self.driverLocation.latitude, longitude: self.driverLocation.longitude)
         
-        if let emailUser = authentication.currentUser?.email {
-            
-            let requests = database.child("requests")
-            let requestsConsul = requests.queryOrdered(byChild: "email").queryEqual(toValue: emailUser)
-            
-            //Creates a listener so when the user calls uber he can cancel.
-            requestsConsul.observeSingleEvent(of: .childAdded) { snapshot in
-             if snapshot.value != nil {
-                    //Cancels the passenger's run.
-                    self.buttonCallUber
-                    
-                }
-                
-            //Creates a listener only when the driver accepts race of the uber.
-                
-                
-            }
-        }
+        let passengerLocations = CLLocation(latitude: self.userlocation.latitude, longitude: self.userlocation.longitude)
+        
+        //Calcs distance between driver and passenger
+        
+        let distance = driverLocations.distance(from: passengerLocations)
+        let distanceKm = distance / 1000
+        let finalDistance = round(distanceKm)
+        
+        self.buttonCallUber.backgroundColor = UIColor(displayP3Red: 0.067, green: 0.576, blue: 0.604, alpha: 1)
+        self.buttonCallUber.setTitle("Driver \(finalDistance) km away!" , for: .normal)
+        
+        //Display passenger and driver in map.
+        
     }
     
     //Creating references of the button call uber
@@ -188,5 +227,46 @@ class PassengerViewController: UIViewController, CLLocationManagerDelegate {
      
     override func viewDidAppear(_ animated: Bool) {
         self.navigationController?.setNavigationBarHidden(false, animated: false)
+        
+
+               //Check if you already have an uber request.
+               let database = Database.database().reference()
+               let authentication = Auth.auth()
+
+               if let emailUser = authentication.currentUser?.email {
+                   print("entrou no if emailuser display  \(self.buttonCallUber)")
+                   let requests = database.child("requests")
+                   let requestsConsul = requests.queryOrdered(byChild: "e-mail").queryEqual(toValue: emailUser)
+
+                   //Creates a listener so when the user calls uber he can cancel.
+                   requestsConsul.observeSingleEvent(of: .childAdded) { snapshot in
+                       if snapshot.value != nil {
+                           //Cancels the passenger's run.
+                           self.buttonCallUber
+                           print("testando funcao display didAper \(snapshot)")
+                       //}
+                       print("exibe distancia do motorista para usuario: \(snapshot)")
+              //            //Creates a listener only when the driver accepts race of the uber.
+                              requestsConsul.observeSingleEvent(of: .childChanged) { snapshot in
+                                  print("testando listener.. \(snapshot)")
+                                  if let data = snapshot.value as? [String: Any] {
+                                      print("testando if depois do listener.. \(snapshot)")
+                                      if let driverLat = data["DriverLatitude"] {
+
+                                          if let driverLon = data["DriverLongitude"] {
+                                              print("chamada da funcao no if longi... \(driverLon)")
+                                              self.driverLocation = CLLocationCoordinate2D(latitude: driverLat as! CLLocationDegrees as! CLLocationDegrees, longitude: driverLon as! CLLocationDegrees)
+                                              print("chamada da funcao no if... \(self.driverLocation)")
+                                              self.displayDriverPassenger()
+                                          }
+                                      }
+                                  }
+                              }
+                           
+                       }
+                   }
+                   
+                   
+               }
     }
 }
