@@ -26,7 +26,8 @@ class PassengerViewController: UIViewController, CLLocationManagerDelegate {
     var driverLocation = CLLocationCoordinate2D()
     
     var uberCalled = false
-   
+    
+    var uberWay = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
