@@ -82,6 +82,9 @@ class PassengerViewController: UIViewController, CLLocationManagerDelegate {
     }
     
     func  displayDriverPassenger() {
+        
+        self.uberWay = true
+        
         print("entrou na funcao display: \(buttonCallUber)")
         //retrive distance between driver and passenger
         let driverLocations = CLLocation(latitude: self.driverLocation.latitude, longitude: self.driverLocation.longitude)
@@ -98,6 +101,28 @@ class PassengerViewController: UIViewController, CLLocationManagerDelegate {
         self.buttonCallUber.setTitle("Driver \(finalDistance) km away!" , for: .normal)
         
         //Display passenger and driver in map.
+        mapView.removeAnnotations(mapView.annotations)
+        
+        let differenceLat = abs(self.userlocation.latitude - self.driverLocation.latitude) * 300000
+        let differenceLon = abs(self.userlocation.longitude - self.driverLocation.longitude) * 300000
+        
+        //Creating local for display driver and passenger.
+        let region = MKCoordinateRegion(center: self.userlocation, latitudinalMeters: differenceLat, longitudinalMeters: differenceLon)
+        mapView.setRegion(region, animated: true)
+        
+        //Display annotation driver
+        let driverAnnotation = MKPointAnnotation()
+        driverAnnotation.coordinate = self.driverLocation
+        driverAnnotation.title = "Motorista"
+        mapView.addAnnotation( driverAnnotation )
+        
+        //Display annotation passenger
+        let passengerAnnotation = MKPointAnnotation()
+        passengerAnnotation.coordinate = self.userlocation
+        passengerAnnotation.title = "Passageiro"
+        mapView.addAnnotation( passengerAnnotation )
+        
+        
         
     }
     
@@ -178,19 +203,28 @@ class PassengerViewController: UIViewController, CLLocationManagerDelegate {
             //configure the current user location
             self.userlocation = coordinateRecovered
             
-            //Defines user's location with the coordinateRecovered object and with a distance accuracy 200
-            let region = MKCoordinateRegion.init(center: coordinateRecovered, latitudinalMeters: 200, longitudinalMeters: 200)
+            if self.uberWay {
+                
+                self.displayDriverPassenger()
+            } else {
+                
+                //Defines user's location with the coordinateRecovered object and with a distance accuracy 200
+                let region = MKCoordinateRegion.init(center: coordinateRecovered, latitudinalMeters: 200, longitudinalMeters: 200)
+                
+                //using the mapview of the app
+                mapView.setRegion(region, animated: true)
+                
+                //Removes all user annotations on the map before displaying the current annotation
+                
+                //Create an annotation for the user's location
+                let userAnnotation = MKPointAnnotation()
+                userAnnotation.coordinate = coordinateRecovered
+                userAnnotation.title = "Your location !!"
+                mapView.addAnnotation(userAnnotation)
+                
+            }
             
-            //using the mapview of the app
-            mapView.setRegion(region, animated: true)
             
-            //Removes all user annotations on the map before displaying the current annotation
-            
-            //Create an annotation for the user's location
-            let userAnnotation = MKPointAnnotation()
-            userAnnotation.coordinate = coordinateRecovered
-            userAnnotation.title = "Your location !!"
-            mapView.addAnnotation(userAnnotation)
         }
           
     }
