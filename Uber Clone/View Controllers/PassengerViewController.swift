@@ -16,6 +16,11 @@ class PassengerViewController: UIViewController, CLLocationManagerDelegate {
     
     @IBOutlet weak var buttonCallUber: UIButton!
     
+    
+    
+    
+    
+    
     //instantiating object CllocationManager
     var locationManager = CLLocationManager()
     
