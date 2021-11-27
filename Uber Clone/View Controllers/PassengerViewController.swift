@@ -16,8 +16,11 @@ class PassengerViewController: UIViewController, CLLocationManagerDelegate {
     
     @IBOutlet weak var buttonCallUber: UIButton!
     
-    
-    
+    //References for view adress
+    @IBOutlet weak var adressArea: UIView!
+    @IBOutlet weak var passengerLocationMarker: UIView!
+    @IBOutlet weak var destinationLocationMarker: UIView!
+    @IBOutlet weak var fieldAdressDestination: UITextField!
     
     
     
@@ -45,45 +48,18 @@ class PassengerViewController: UIViewController, CLLocationManagerDelegate {
         locationManager.requestWhenInUseAuthorization()
         //Updating user location
         locationManager.startUpdatingLocation()
+        
+        //It's creates rounding for markers
+        self.passengerLocationMarker.layer.cornerRadius = 17.5
+        self.passengerLocationMarker.clipsToBounds = true
+        
+        self.destinationLocationMarker.layer.cornerRadius = 17.5
+        self.destinationLocationMarker.clipsToBounds = true
+        
+        self.adressArea.layer.cornerRadius = 10
+        self.adressArea.clipsToBounds = true
 
-        //Check if you already have an uber request.
-//        let database = Database.database().reference()
-//        let authentication = Auth.auth()
-//
-//        if let emailUser = authentication.currentUser?.email {
-//
-//            let requests = database.child("requests")
-//            let requestsConsul = requests.queryOrdered(byChild: "email").queryEqual(toValue: emailUser)
-//
-//            //Creates a listener so when the user calls uber he can cancel.
-//            requestsConsul.observeSingleEvent(of: .childAdded) { snapshot in
-//                if snapshot.value != nil {
-//                    //Cancels the passenger's run.
-//                    self.buttonCallUber
-//                }
-//                print("Passou depois da cloure")
-//            //Creates a listener only when the driver accepts race of the uber.
-//                requestsConsul.observeSingleEvent(of: .childChanged) { snapshot in
-//
-//                    if let data = snapshot.value as? [String: Any] {
-//
-//                        if let driverLat = data["DriverLatitude"] {
-//
-//                            if let driverLon = data["DriverLongitude"] {
-//
-//                                self.driverLocation = CLLocationCoordinate2D(latitude: driverLat as! CLLocationDegrees as! CLLocationDegrees, longitude: driverLon as! CLLocationDegrees)
-//                                self.displayDriverPassenger()
-//
-//                            }
-//                        }
-//                    }
-//
-//                }
-//
-//            }
-//
-//
-//        }
+
     }
     
     func  displayDriverPassenger() {
@@ -126,9 +102,7 @@ class PassengerViewController: UIViewController, CLLocationManagerDelegate {
         passengerAnnotation.coordinate = self.userlocation
         passengerAnnotation.title = "Passageiro"
         mapView.addAnnotation( passengerAnnotation )
-        
-        
-        
+          
     }
     
     //Creating references of the button call uber
@@ -163,42 +137,211 @@ class PassengerViewController: UIViewController, CLLocationManagerDelegate {
                 
             }else{//uber was not called
                 
-                if let userId = authentication.currentUser?.uid {
-                    let database = Database.database().reference()
-                    //retrive username
-                    let users = database.child("users").child(userId)
-                    
-                    users.observeSingleEvent(of: .value) { snapshot in
-                        
-                        let data = snapshot.value as? NSDictionary
-                        
-                        let userName = data!["name"] as? String
-                        
-                        //Creating request
-                        //creating an array of dictionary for the registered data of the passing user.
-                        let dataUser = [
-                        
-                            "e-mail" : userEmail ,
-                            "name" : userName ,
-                            "latitude" : self.userlocation.latitude,
-                            "longitude" : self.userlocation.longitude
-                        ] as [String : Any]
-                        
-                        //Creating automatic ID for requests
-                        request.childByAutoId().setValue( dataUser )
-                        
-                    }
-                    //Change the color and title of the button when user click cancel.
-                    self.changeColorButtonCancelUber()
-                      
-                }
+                self.saveRequest()
                   
-            }
+            }//end else
              
         }
      
     }//End the method calluber
     
+    func saveRequest() {
+        
+        //creating references of the database
+        let database = Database.database().reference()
+        //creating references to retrieve user data
+        let authentication = Auth.auth()
+        //creating node requests
+        let request = database.child("requests")
+        
+        
+        if let userId = authentication.currentUser?.uid {
+            if let userEmail = authentication.currentUser?.email {
+                if let adressDestination = self.fieldAdressDestination.text {
+                    if adressDestination != nil {
+                    
+                        CLGeocoder().geocodeAddressString(adressDestination) { local, erro in
+                            
+                            if erro == nil {
+                                
+                                //print for test 'local', return adress street, number, city, postalCode etc...
+                                //print("teste local function saveRequest: \(local?.first)")
+                                
+                                if let localData = local?.first {
+                                    
+                                    var street = ""
+                                    if localData.thoroughfare != nil {
+                                    street = localData.thoroughfare!
+                                    }
+                                    var number = ""
+                                    if localData.subThoroughfare != nil {
+                                    number = localData.subThoroughfare!
+                                    }
+                                    var subLocality = ""
+                                    if localData.subLocality != nil {
+                                    subLocality = localData.subLocality!
+                                    }
+                                    var locality = ""
+                                    if localData.locality != nil {
+                                    locality = localData.locality!
+                                    }
+                                    var postalCode = ""
+                                    if localData.postalCode != nil {
+                                    postalCode = localData.postalCode!
+                                    }
+//                                    testing adress
+//                                    Horácio lafer, 100
+                                    
+                                    let fullAdress = "Street: \(street) \n Number: \(number) \n SubLocality: \(subLocality) \n Locality: \(locality) \n PostalCode: \(postalCode)"
+                                    //"\(street), + \(number), \(subLocality) - \(locality) - \(postalCode)"
+                                    print(street)
+                                    print("Testing localData: \(fullAdress)")
+                                    
+                                    if let latDestination = localData.location?.coordinate.latitude {
+                                        if let lonDestination = localData.location?.coordinate.longitude {
+                                            
+                                            let alert = UIAlertController(title: "Do you confirm your address?", message: fullAdress, preferredStyle: .alert)
+                                            
+                                            let cancelAlert = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+                                            
+                                            let confirmAction = UIAlertAction(title: "Confirm", style: .default) { alertAction in
+                                                //testing...
+                                                print("confirmAction")
+                                                
+                                                //Retrieve name user
+                                                let database = Database.database().reference()
+                                                //retrive username
+                                                let users = database.child("users").child(userId)
+                                                
+                                                users.observeSingleEvent(of: .value) { snapshot in
+                                                    
+                                                    let data = snapshot.value as? NSDictionary
+                                                    
+                                                    let userName = data!["name"] as? String
+                                                    
+                                                    //Creating request
+                                                    //creating an array of dictionary for the registered data of the passing user.
+                                                    let dataUser = [
+                                                        "latDestination" : latDestination,
+                                                        "lonDestination" : lonDestination,
+                                                        "e-mail" : userEmail ,
+                                                        "name" : userName ,
+                                                        "latitude" : self.userlocation.latitude,
+                                                        "longitude" : self.userlocation.longitude
+                                                    ] as [String : Any]
+                                                    
+                                                    //Creating automatic ID for requests
+                                                    request.childByAutoId().setValue( dataUser )
+                                                    
+                                                    //Change the color and title of the button when user click cancel.
+                                                    self.changeColorButtonCancelUber()
+                                                    
+                                                }
+                                                
+                                            }
+                                            
+                                            alert.addAction(cancelAlert)
+                                            alert.addAction(confirmAction)
+                                            
+                                            self.present(alert, animated: true, completion: nil)
+                                             
+                                    }//end lonDestination
+                                    
+                                }//end latDestination
+                                    
+                                     
+                                }//end if localData
+                                
+                            }//end if erro == nil
+                            
+                        }//end CLGeocoder
+                        
+                    }else {
+                        
+                        print("Field adress destination are empty !!")
+                    }
+                }
+                /*
+                //Retrieve name user
+                let database = Database.database().reference()
+                //retrive username
+                let users = database.child("users").child(userId)
+                
+                users.observeSingleEvent(of: .value) { snapshot in
+                    
+                    let data = snapshot.value as? NSDictionary
+                    
+                    let userName = data!["name"] as? String
+                    
+                    //Creating request
+                    //creating an array of dictionary for the registered data of the passing user.
+                    let dataUser = [
+                        "latDestination" : "",
+                        "lonDestination" : "",
+                        "e-mail" : userEmail ,
+                        "name" : userName ,
+                        "latitude" : self.userlocation.latitude,
+                        "longitude" : self.userlocation.longitude
+                    ] as [String : Any]
+                    
+                    //Creating automatic ID for requests
+                    request.childByAutoId().setValue( dataUser )
+                }
+                */
+                
+            }//end if userEmail
+            
+            
+            
+            
+        }//end if userId
+    }//fim function
+    
+            /*
+                
+                    
+                    
+                        
+                        
+                            
+                            
+                                
+                                
+                                 
+                                 
+                                 
+                                 
+                                 
+                                 
+                                 
+                                
+                                  
+                                    /*
+                                    
+                                    
+                                    
+                               
+                                */
+                            
+                            }//end if erro != nill
+                            
+                        }
+                        
+                    }
+                    
+                }//end adressDestination
+                
+            
+             
+            
+         */
+         
+      
+                     
+                     
+                
+    
+         
     //Method for updating user location
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         

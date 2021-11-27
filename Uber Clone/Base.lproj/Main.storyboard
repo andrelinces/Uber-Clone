@@ -452,8 +452,12 @@
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="adressArea" destination="YjE-nu-xgC" id="hkH-O7-km6"/>
                         <outlet property="buttonCallUber" destination="DLD-uU-BM7" id="DDi-ff-Cv3"/>
+                        <outlet property="destinationLocationMarker" destination="xGk-wu-pgS" id="J98-zb-Q1A"/>
+                        <outlet property="fieldAdressDestination" destination="GEf-6T-ndZ" id="te2-0u-1pt"/>
                         <outlet property="mapView" destination="C6h-iK-6Aw" id="4DZ-7d-BCj"/>
+                        <outlet property="passengerLocationMarker" destination="JSI-bP-XSs" id="Kjx-Eg-2R1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qqu-f2-fZa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
